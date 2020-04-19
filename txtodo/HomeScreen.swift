@@ -46,6 +46,14 @@ struct HomeScreen: View {
                             priority: Int(task.priority)
                         )
                             .environment(\.managedObjectContext, self.managedObjectContext)
+                            .onAppear(perform: {
+                                if task.markedForDeletion && !(Calendar.current.component(.day, from: task.completionDate) == self.currentDay) {
+                                    self.managedObjectContext.performAndWait {
+                                        self.managedObjectContext.delete(task)
+                                        try? self.managedObjectContext.save()
+                                    }
+                                }
+                            })
                     }
                     if self.dailyTasks.count > 0 {
                         SectionLabel(text: "daily")
