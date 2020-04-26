@@ -147,8 +147,6 @@ struct Settings: View {
 }
 
 struct About: View {
-    @State private var website: Bool = false
-    @State private var post: Bool = false
     let content: [String] = [
         "Pronounced \"text to do,\" txtodo is a minimalist open-source todo list app made by FIGBERT and inspired by Jeff Huang. it lists your immediate, short-term tasks to help you get things done without overthinking it.",
         "After reading a post by Jeff Huang, I started thinking about how I managed my own daily tasks. I wanted to make a solution that could train me into being highly productive.",
@@ -165,48 +163,21 @@ struct About: View {
             BodyText(text: content[2], color: .label, alignment: .center, strikethrough: false)
                 .padding(.bottom, 50)
             Button(action: {
-                self.website = true
+                UIApplication.shared.open(URL(string: "https://txtodo.app/")!)
             }) {
                 BodyText(text: "visit txtodo.app", color: .link, alignment: .center, strikethrough: false)
             }
                 .padding(.bottom, 10)
-                .sheet(
-                    isPresented: $website,
-                    content: {
-                        ActivityView(activityItems: [NSURL(string: "https://txtodo.app") as Any], applicationActivities: nil)
-                    }
-                )
             Button(action: {
-                self.post = true
+                UIApplication.shared.open(URL(string: "https://jeffhuang.com/productivity_text_file/")!)
             }) {
                 BodyText(text: "view the inspiration", color: .link, alignment: .center, strikethrough: false)
             }
                 .padding(.bottom, 10)
-                .sheet(
-                    isPresented: $post,
-                    content: {
-                        ActivityView(activityItems: [NSURL(string: "https://jeffhuang.com/productivity_text_file/") as Any], applicationActivities: nil)
-                    }
-                )
             Spacer()
         }
             .padding()
     }
-}
-
-struct ActivityView: UIViewControllerRepresentable {
-    let activityItems: [Any]
-    let applicationActivities: [UIActivity]?
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityView>) -> UIActivityViewController {
-        return UIActivityViewController(
-            activityItems: activityItems,
-            applicationActivities: applicationActivities
-        )
-    }
-    func updateUIViewController(_
-        uiViewController: UIActivityViewController,
-        context: UIViewControllerRepresentableContext<ActivityView>
-    ) {}
 }
 
 struct Menu_Previews: PreviewProvider {
