@@ -150,9 +150,9 @@ struct About: View {
     @State private var website: Bool = false
     @State private var post: Bool = false
     let content: [String] = [
-        "Pronounced \"text to do,\" txtodo is a simple and minimalist open-source todo app made by FIGBERT and inspired by Jeff Huang.",
-        "After reading a post of his, I started thinking about how I managed my own productivity. I wanted to make a solution that could force me into being productive.",
-        "That solution is txtodo. It manages immediate, short-term tasks to help you get things done."
+        "Pronounced \"text to do,\" txtodo is a minimalist open-source todo list app made by FIGBERT and inspired by Jeff Huang. it lists your immediate, short-term tasks to help you get things done without overthinking it.",
+        "After reading a post by Jeff Huang, I started thinking about how I managed my own daily tasks. I wanted to make a solution that could train me into being highly productive.",
+        "That solution is txtodo. It manages immediate, short-term tasks to help you get things done. welcome to productivity. welcome to txtodo."
     ]
     var body: some View {
         VStack {
