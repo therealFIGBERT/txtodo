@@ -29,13 +29,17 @@ class GlobalVars: ObservableObject {
     @Published var notificationHour: Int = UserDefaults.standard.integer(forKey: "notificationHour") {
         willSet {
             UserDefaults.standard.set(newValue, forKey: "notificationHour")
-            enableNotifications(timeChange: true)
+            if notifications {
+                enableNotifications(timeChange: true)
+            }
         }
     }
     @Published var notificationMinute: Int = UserDefaults.standard.integer(forKey: "notificationMinute") {
         willSet {
             UserDefaults.standard.set(newValue, forKey: "notificationMinute")
-            enableNotifications(timeChange: true)
+            if notifications {
+                enableNotifications(timeChange: true)
+            }
         }
     }
     func enableNotifications(toggleSwitch: Bool = false, timeChange: Bool = false) {
