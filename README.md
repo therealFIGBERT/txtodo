@@ -10,9 +10,9 @@ Download it on the App Store and give it a try! ~~not yet though I'm still worki
 
 ## milestones
 - [x] launch alpha on TestFlight
-- [ ] launch wider beta testing
-- [ ] submit to Apple for approval
-- [ ] go live on the App Store! :tada:
+- [x] launch wider beta testing
+- [x] submit to Apple for approval
+- [x] go live on the App Store! :tada:
 
 ## short term goals
 - [x] implement a "floating" task system for long term goals
@@ -33,7 +33,7 @@ Download it on the App Store and give it a try! ~~not yet though I'm still worki
 2. [FIGBERT homepage](https://figbert.com/)
 3. [txtodo repository](https://github.com/therealFIGBERT/txtodo)
 4. [txtodo homepage repository](https://github.com/therealFIGBERT/txtodo.app)
-5. [txtodo on the App Store](https://apple.com/) *Coming soon!*
+5. [txtodo on the App Store](https://apps.apple.com/us/app/txtodo/id1504609185)
 
 [0]: https://figbert.com/
 [1]: https://jeffhuang.com/productivity_text_file/
