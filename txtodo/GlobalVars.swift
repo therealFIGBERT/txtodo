@@ -30,7 +30,7 @@ class GlobalVars: ObservableObject {
         willSet {
             UserDefaults.standard.set(newValue, forKey: "notificationHour")
             if notifications {
-                enableNotifications(timeChange: true)
+                enableNotifications()
             }
         }
     }
@@ -38,14 +38,12 @@ class GlobalVars: ObservableObject {
         willSet {
             UserDefaults.standard.set(newValue, forKey: "notificationMinute")
             if notifications {
-                enableNotifications(timeChange: true)
+                enableNotifications()
             }
         }
     }
-    func enableNotifications(toggleSwitch: Bool = false, timeChange: Bool = false) {
-        if timeChange {
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        }
+    func enableNotifications(toggleSwitch: Bool = false) {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .badge, .sound]
         ) { success, error in
