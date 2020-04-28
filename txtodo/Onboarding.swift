@@ -28,10 +28,10 @@ struct Onboarding: View {
     let captions = [
         "txtodo is a minimalist, open-source productivity app made by FIGBERT. It lists daily tasks that expire at midnight to help you get things done without overthinking them.",
         "tap on the button above to create a new task, and edit the text and priority. try out the live demo above.",
-        "double tap a task to edit the task, and press return to confirm your changes. try out the live demo above.",
+        "double tap a task to edit the task, press return to confirm your changes, and long press to delete. try out the live demo above.",
         "there are two types of tasks in txtodo: daily and floating. unlike daily tasks, which disappear at midnight, floating tasks never expire – however, you can only have three at a time!",
         "tap on the button above to create a new note. notes provide extra details about tasks, and they're accessed by tapping once on a task. try out the live demo above.",
-        "double tap a note to edit the text, and press return to confirm your changes. try out the live demo above.",
+        "double tap a note to edit the text, press return to confirm your changes, and long press to delete. try out the live demo above.",
         "txtodo uses notifications to remind users to set the day's tasks in the morning, but they are not required. notifications are scheduled at 8:30am by default. notifications can be modified from the settings menu.",
         "more projects are available at figbert.com"
     ]
