@@ -135,7 +135,7 @@ struct Settings: View {
                     }) {
                         HStack {
                             Image(systemName: "doc.richtext")
-                            Text("show onboarding screen")
+                            Text("show tutorial")
                         }
                     }
                 }

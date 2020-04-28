@@ -34,7 +34,7 @@ struct HomeScreen: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    Header(text: "tasks", underline: true)
+                    Header(text: "txtodo", underline: true)
                     if self.floatingTasks.count > 0 {
                         SectionLabel(text: "floating")
                     }
