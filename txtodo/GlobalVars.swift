@@ -42,16 +42,13 @@ class GlobalVars: ObservableObject {
             }
         }
     }
-    func enableNotifications(toggleSwitch: Bool = false) {
+    func enableNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .badge, .sound]
         ) { success, error in
             if success {
                 DispatchQueue.main.async {
-                    if toggleSwitch {
-                        self.notifications = true
-                    }
                     let content = UNMutableNotificationContent()
                     content.title = "open txtodo"
                     content.body = "take some time to plan your day"

@@ -480,7 +480,7 @@ struct RequestNotifications: View {
                 Button(action: {
                     self.globalVars.notificationHour = 8
                     self.globalVars.notificationMinute = 30
-                    self.globalVars.enableNotifications(toggleSwitch: true)
+                    self.globalVars.notifications = true
                 }) {
                     Text(self.globalVars.notifications ? "notifications set for \(self.globalVars.notificationHour):\(self.globalVars.notificationMinute)am" : "set notifications to 8:30am")
                         .font(.system(size: 20, weight: .light, design: .rounded))
