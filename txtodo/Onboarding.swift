@@ -24,17 +24,8 @@ struct Onboarding: View {
         UIHostingController(rootView: RequestNotifications()),
         UIHostingController(rootView: ThankYou())
     ]
-    let titles = ["welcome to txtodo", "create a task", "edit a task", "types of tasks", "create a note", "edit a note", "customize notifications", "thanks for downloading"]
-    let captions = [
-        "txtodo is a minimalist, open-source productivity app made by FIGBERT. It lists daily tasks that expire at midnight to help you get things done without overthinking them.",
-        "tap on the button above to create a new task, and edit the text and priority. try out the live demo above.",
-        "double tap a task to edit the task, press return to confirm your changes, and long press to delete. try out the live demo above.",
-        "there are two types of tasks in txtodo: daily and floating. unlike daily tasks, which disappear at midnight, floating tasks never expire – however, you can only have three at a time!",
-        "tap on the button above to create a new note. notes provide extra details about tasks, and they're accessed by tapping once on a task. try out the live demo above.",
-        "double tap a note to edit the text, press return to confirm your changes, and long press to delete. try out the live demo above.",
-        "txtodo uses notifications to remind users to set the day's tasks in the morning, but they are not required. notifications are scheduled at 8:30am by default. notifications can be modified from the settings menu.",
-        "more projects are available at figbert.com"
-    ]
+    let titles = ["onboardingTitleOne", "onboardingTitleTwo", "onboardingTitleThree", "onboardingTitleFour", "onboardingTitleFive", "onboardingTitleSix", "onboardingTitleSeven", "onboardingTitleEight"]
+    let captions = ["onboardingCaptionOne", "onboardingCaptionTwo", "onboardingCaptionThree", "onboardingCaptionFour", "onboardingCaptionFive", "onboardingCaptionSix", "onboardingCaptionSeven", "onboardingCaptionEight"]
     var body: some View {
         ZStack {
             Color.init(UIColor.systemGray6)
@@ -45,8 +36,11 @@ struct Onboarding: View {
                     .frame(height: 200)
                 Spacer()
                 Group {
-                    Header(text: titles[currentPage], underline: false)
-                    BodyText(text: captions[currentPage], color: .systemGray, alignment: .leading, strikethrough: false)
+                    Text(String(format: NSLocalizedString(titles[currentPage], comment: "")))
+                        .underline()
+                        .header()
+                    Text(String(format: NSLocalizedString(captions[currentPage], comment: "")))
+                        .bodyText(color: .systemGray, alignment: .leading)
                 }
                 HStack {
                     PageControl(numberOfPages: subviews.count, currentPageIndex: $currentPage)
@@ -58,9 +52,17 @@ struct Onboarding: View {
                             self.currentPage += 1
                         }
                     }) {
-                        Image(systemName: currentPage != subviews.count - 1 ? "arrow.right.circle" : "arrow.counterclockwise.circle")
-                            .font(.system(size: 30, weight: .light))
-                            .foregroundColor(Color.init(UIColor.label))
+                        if currentPage != subviews.count - 1 {
+                            Image(systemName: "arrow.right.circle")
+                                .flipsForRightToLeftLayoutDirection(true)
+                                .font(.system(size: 30, weight: .light))
+                                .foregroundColor(Color.init(UIColor.label))
+                        } else {
+                            Image(systemName: "arrow.counterclockwise.circle")
+                                .flipsForRightToLeftLayoutDirection(true)
+                                .font(.system(size: 30, weight: .light))
+                                .foregroundColor(Color.init(UIColor.label))
+                        }
                     }
                     if currentPage == subviews.count - 1 {
                         Button(action: {
@@ -79,6 +81,7 @@ struct Onboarding: View {
 }
 
 struct PageViewController: UIViewControllerRepresentable {
+    @Environment(\.layoutDirection) var direction
     @Binding var currentPage: Int
     var viewControllers: [UIViewController]
     func makeCoordinator() -> Coordinator {
@@ -95,7 +98,9 @@ struct PageViewController: UIViewControllerRepresentable {
     }
     func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
         pageViewController.setViewControllers(
-            [viewControllers[currentPage]], direction: .forward, animated: true
+            [viewControllers[currentPage]],
+            direction: direction == LayoutDirection.leftToRight ? .forward : .reverse,
+            animated: true
         )
     }
     class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -149,12 +154,13 @@ struct PageControl: UIViewRepresentable {
 }
 
 struct Introduction: View {
+    @Environment(\.locale) var language
     var body: some View {
         ZStack {
             Color.init(UIColor.systemGray6)
                 .edgesIgnoringSafeArea(.all)
-            Text("txtodo")
-                .font(.system(size: 125, weight: .ultraLight, design: .rounded))
+            Text("title")
+                .font(.system(size: language == Locale.init(identifier: "en") ? 125 : 100, weight: .ultraLight, design: .rounded))
                 .foregroundColor(Color.init(UIColor.label))
         }
     }
@@ -177,7 +183,8 @@ struct AddTaskDemo: View {
                     HStack {
                         MainImage(name: "plus.square", color: .systemGray)
                         Spacer()
-                        BodyText(text: "create a task", color: .systemGray, alignment: .center, strikethrough: false)
+                        Text("create a task")
+                            .bodyText(color: .systemGray, alignment: .center)
                         Spacer()
                         MainImage(name: "plus.square", color: .systemGray)
                     }
@@ -194,7 +201,8 @@ struct AddTaskDemo: View {
                                 self.addingTask = false
                             }
                         Spacer()
-                        EditingField(placeholder: "tap here", text: $text, alignment: .center, onEnd: { })
+                        TextField("tap", text: $text)
+                            .editingField()
                         Picker(
                             selection: $priority,
                             label: Text("task priority"),
@@ -240,12 +248,14 @@ struct AddTaskDemo: View {
                     }
                 Spacer()
                 if !editing {
-                    BodyText(text: text, color: .label, alignment: .center, strikethrough: false)
+                    Text(text)
+                        .bodyText()
                         .onTapGesture(count: 2) {
                             self.editing = true
                         }
                 } else {
-                    EditingField(placeholder: "editing", text: $text, alignment: .center, onEnd: { self.editing = false })
+                    TextField("editing", text: $text) { self.editing = false }
+                        .editingField()
                 }
                 Spacer()
                 if !editing {
@@ -295,12 +305,14 @@ struct TaskDemo: View {
                     }
                 Spacer()
                 if !editing {
-                    BodyText(text: text, color: .label, alignment: .center, strikethrough: false)
+                    Text(text)
+                        .bodyText()
                         .onTapGesture(count: 2) {
                             self.editing = true
                         }
                 } else {
-                    EditingField(placeholder: "editing", text: $text, alignment: .center, onEnd: { self.editing = false })
+                    TextField("editing", text: $text) { self.editing = false }
+                        .editingField()
                 }
                 Spacer()
                 if !editing {
@@ -344,14 +356,16 @@ struct TaskTypes: View {
                     Image(systemName: "clock")
                         .font(.system(size: 25, weight: .light, design: .rounded))
                         .foregroundColor(Color.init(UIColor.label))
-                    BodyText(text: "daily", color: .label, alignment: .center, strikethrough: false)
+                    Text("daily")
+                        .bodyText()
                 }
                     .padding(.horizontal, 50)
                 VStack {
                     Image(systemName: "cloud")
                         .font(.system(size: 25, weight: .light, design: .rounded))
                         .foregroundColor(Color.init(UIColor.label))
-                    BodyText(text: "floating", color: .label, alignment: .center, strikethrough: false)
+                    Text("floating")
+                        .bodyText()
                 }
                     .padding(.horizontal, 50)
             }
@@ -378,7 +392,8 @@ struct AddNoteDemo: View {
                         HStack {
                             MainImage(name: "plus.square", color: .systemGray)
                             Spacer()
-                            BodyText(text: "create a note", color: .systemGray, alignment: .center, strikethrough: false)
+                            Text("create a note")
+                                .bodyText(color: .systemGray, alignment: .center)
                             Spacer()
                             MainImage(name: "plus.square", color: .systemGray)
                         }.padding(.horizontal, 25)
@@ -393,7 +408,8 @@ struct AddNoteDemo: View {
                             MainImage(name: "multiply.square", color: .systemGray)
                         }
                         Spacer()
-                        EditingField(placeholder: "tap here", text: $newNoteText, alignment: .center, onEnd: { })
+                        TextField("tap", text: $newNoteText)
+                            .editingField()
                         Spacer()
                         Button(action: {
                             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -421,7 +437,8 @@ struct AddNoteDemo: View {
                 MainImage(name: "minus", color: .label)
                     .padding(.trailing, 20)
                 if !editing {
-                    BodyText(text: note, color: .label, alignment: .leading, strikethrough: false)
+                    Text(note)
+                        .bodyText(color: .label, alignment: .leading)
                         .onTapGesture(count: 2) {
                             self.editing = true
                         }
@@ -451,7 +468,8 @@ struct NoteDemo: View {
                 MainImage(name: "minus", color: .label)
                     .padding(.trailing, 20)
                 if !editing {
-                    BodyText(text: note, color: .label, alignment: .leading, strikethrough: false)
+                    Text(note)
+                        .bodyText(color: .label, alignment: .leading)
                         .onTapGesture(count: 2) {
                             self.editing = true
                         }
@@ -482,15 +500,27 @@ struct RequestNotifications: View {
                     self.globalVars.notificationMinute = 30
                     self.globalVars.notifications = true
                 }) {
-                    Text(self.globalVars.notifications ? "notifications set for \(self.globalVars.notificationHour):\(self.globalVars.notificationMinute)am" : "set notifications to 8:30am")
-                        .font(.system(size: 20, weight: .light, design: .rounded))
-                        .foregroundColor(self.globalVars.notifications ? Color.green : Color.blue)
-                        .multilineTextAlignment(.center)
-                        .padding(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(self.globalVars.notifications ? Color.green : Color.blue, lineWidth: 1)
+                    if globalVars.notifications {
+                        Text(String(format: NSLocalizedString("notifications set for %@", comment: ""), "\("0\(self.globalVars.notificationHour):\(self.globalVars.notificationMinute != 0 ? "\(self.globalVars.notificationMinute)" : "00")")"))
+                            .font(.system(size: 20, weight: .light, design: .rounded))
+                            .foregroundColor(self.globalVars.notifications ? Color.green : Color.blue)
+                            .multilineTextAlignment(.center)
+                            .padding(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(self.globalVars.notifications ? Color.green : Color.blue, lineWidth: 1)
                         )
+                    } else {
+                        Text("set notifications to 08:30")
+                            .font(.system(size: 20, weight: .light, design: .rounded))
+                            .foregroundColor(self.globalVars.notifications ? Color.green : Color.blue)
+                            .multilineTextAlignment(.center)
+                            .padding(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(self.globalVars.notifications ? Color.green : Color.blue, lineWidth: 1)
+                            )
+                    }
                 }
                     .disabled(self.globalVars.notifications)
             }
@@ -499,16 +529,23 @@ struct RequestNotifications: View {
 }
 
 struct ThankYou: View {
+    @Environment(\.locale) var language
     var body: some View {
         ZStack {
             Color.init(UIColor.systemGray6)
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                Text("txtodo")
-                    .font(.system(size: 125, weight: .ultraLight, design: .rounded))
+                Text("title")
+                    .font(.system(size: language == Locale.init(identifier: "en") ? 125 : 100, weight: .ultraLight, design: .rounded))
                     .foregroundColor(Color.init(UIColor.label))
-                BodyText(text: "a minimalist open-source todo app", color: .label, alignment: .center, strikethrough: false)
-                BodyText(text: "made by FIGBERT", color: .systemGray, alignment: .center, strikethrough: false)
+                Text("app pitch")
+                    .font(.system(size: language == Locale.init(identifier: "en") ? 20 : 17, weight: .light, design: .rounded))
+                    .foregroundColor(Color.init(.label))
+                    .multilineTextAlignment(.center)
+                Text("made by FIGBERT")
+                    .font(.system(size: language == Locale.init(identifier: "en") ? 20 : 17, weight: .light, design: .rounded))
+                    .foregroundColor(Color.init(.systemGray))
+                    .multilineTextAlignment(.center)
             }
         }
     }

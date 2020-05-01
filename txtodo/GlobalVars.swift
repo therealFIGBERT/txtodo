@@ -45,13 +45,13 @@ class GlobalVars: ObservableObject {
     func enableNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().requestAuthorization(
-            options: [.alert, .badge, .sound]
+            options: [.alert, .sound]
         ) { success, error in
             if success {
                 DispatchQueue.main.async {
                     let content = UNMutableNotificationContent()
-                    content.title = "open txtodo"
-                    content.body = "take some time to plan your day"
+                    content.title = String(format: NSLocalizedString("open txtodo", comment: ""))
+                    content.body = String(format: NSLocalizedString("take some time to plan your day", comment: ""))
                     content.sound = UNNotificationSound.default
                     var time = DateComponents()
                     time.hour = self.notificationHour

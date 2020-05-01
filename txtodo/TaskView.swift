@@ -46,9 +46,12 @@ struct floatingTaskView: View {
             }
             Spacer()
             if deleted {
-                BodyText(text: "deleting...", color: .label, alignment: .center, strikethrough: false)
+                Text("delete")
+                    .bodyText()
             } else if !editing {
-                BodyText(text: task.name, color: completed ? .systemGray : .label, alignment: .center, strikethrough: completed)
+                Text(task.name)
+                    .strikethrough(completed)
+                    .bodyText(color: completed ? .systemGray : .label, alignment: .center)
                     .onTapGesture(count: 2) {
                         self.editing = true
                     }
@@ -63,14 +66,15 @@ struct floatingTaskView: View {
                             .environment(\.managedObjectContext, self.managedObjectContext)
                     })
             } else {
-                EditingField(placeholder: "edit task", text: $name, alignment: .center, onEnd: {
+                TextField("edit task", text: $name) {
                     self.editing = false
                     self.managedObjectContext.performAndWait {
                         self.task.name = self.name
                         self.task.priority = Int16(self.priority)
                         try? self.managedObjectContext.save()
                     }
-                })
+                }
+                    .editingField()
             }
             Spacer()
             if deleted {
@@ -105,7 +109,7 @@ struct floatingTaskView: View {
             .alert(isPresented: $confirmingDelete) {
                 Alert(
                     title: Text("confirm delete"),
-                    message: Text("\"\(name)\" will be gone forever, with no option to restore"),
+                    message: Text(String(format: NSLocalizedString("\"%@\" deleteWarning", comment: ""), name)),
                     primaryButton: .destructive(Text("delete")) {
                         self.managedObjectContext.performAndWait {
                             self.managedObjectContext.delete(self.task)
@@ -149,9 +153,12 @@ struct dailyTaskView: View {
             }
             Spacer()
             if deleted {
-                BodyText(text: "deleting...", color: .label, alignment: .center, strikethrough: false)
+                Text("delete")
+                    .bodyText()
             } else if !editing {
-                BodyText(text: task.name, color: completed ? .systemGray : .label, alignment: .center, strikethrough: completed)
+                Text(task.name)
+                    .strikethrough(completed)
+                    .bodyText(color: completed ? .systemGray : .label, alignment: .center)
                     .onTapGesture(count: 2) {
                         self.editing = true
                     }
@@ -165,14 +172,15 @@ struct dailyTaskView: View {
                         dailyTaskNotes(task: self.task).environment(\.managedObjectContext, self.managedObjectContext)
                     })
             } else {
-                EditingField(placeholder: "edit task", text: $name, alignment: .center, onEnd: {
+                TextField("edit task", text: $name) {
                     self.editing = false
                     self.managedObjectContext.performAndWait {
                         self.task.name = self.name
                         self.task.priority = Int16(self.priority)
                         try? self.managedObjectContext.save()
                     }
-                })
+                }
+                    .editingField()
             }
             Spacer()
             if deleted {
@@ -206,8 +214,8 @@ struct dailyTaskView: View {
         }
             .alert(isPresented: $confirmingDelete) {
                 Alert(
-                    title: Text("confirm delete"), 
-                    message: Text("\"\(name)\" will be gone forever, with no option to restore"),
+                    title: Text("confirm delete"),
+                    message: Text(String(format: NSLocalizedString("\"%@\" deleteWarning", comment: ""), name)),
                     primaryButton: .destructive(Text("delete")) {
                         self.managedObjectContext.performAndWait {
                             self.managedObjectContext.delete(self.task)

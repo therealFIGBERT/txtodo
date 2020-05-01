@@ -45,7 +45,7 @@ struct MenuItem: View {
     var body: some View {
         HStack {
             Image(systemName: img)
-            Text(txt)
+            Text(String(format: NSLocalizedString(txt, comment: "")))
         }
             .foregroundColor(Color.init(UIColor.label))
             .onTapGesture {
@@ -69,7 +69,9 @@ struct Settings: View {
     @State private var changingTime: Bool = false
     var body: some View {
         VStack {
-            Header(text: "settings", underline: true)
+            Text("settings")
+                .underline()
+                .header()
                 .padding(.top, 25)
             Form {
                 Section {
@@ -86,7 +88,7 @@ struct Settings: View {
                         Button(action: {
                             self.changingTime = true
                         }) {
-                            Text("\(globalVars.notificationHour):\(globalVars.notificationMinute)")
+                            Text("0\(globalVars.notificationHour):\(globalVars.notificationMinute != 0 ? "\(globalVars.notificationMinute)" : "00")")
                         }
                             .disabled(!self.globalVars.notifications)
                             .sheet(isPresented: $changingTime, content: {
@@ -148,30 +150,37 @@ struct Settings: View {
 
 struct About: View {
     let content: [String] = [
-        "Pronounced \"text to do,\" txtodo is a minimalist open-source todo list app made by FIGBERT and inspired by Jeff Huang. it lists your immediate, short-term tasks to help you get things done without overthinking it.",
-        "After reading a post by Jeff Huang, I started thinking about how I managed my own daily tasks. I wanted to make a solution that could train me into being highly productive.",
-        "That solution is txtodo. It manages immediate, short-term tasks to help you get things done. welcome to productivity. welcome to txtodo."
+        "aboutOne",
+        "aboutTwo",
+        "aboutThree"
     ]
     var body: some View {
         VStack {
-            Header(text: "about", underline: true)
+            Text("about")
+                .underline()
+                .header()
                 .padding(.bottom, 25)
-            BodyText(text: content[0], color: .label, alignment: .center, strikethrough: false)
+            Text(String(format: NSLocalizedString(content[0], comment: "")))
+                .bodyText()
                 .padding(.bottom, 10)
-            BodyText(text: content[1], color: .label, alignment: .center, strikethrough: false)
+            Text(String(format: NSLocalizedString(content[1], comment: "")))
+                .bodyText()
                 .padding(.bottom, 10)
-            BodyText(text: content[2], color: .label, alignment: .center, strikethrough: false)
+            Text(String(format: NSLocalizedString(content[2], comment: "")))
+                .bodyText()
                 .padding(.bottom, 50)
             Button(action: {
                 UIApplication.shared.open(URL(string: "https://txtodo.app/")!)
             }) {
-                BodyText(text: "visit txtodo.app", color: .link, alignment: .center, strikethrough: false)
+                Text("view site")
+                    .bodyText(color: .link, alignment: .center)
             }
                 .padding(.bottom, 10)
             Button(action: {
                 UIApplication.shared.open(URL(string: "https://jeffhuang.com/productivity_text_file/")!)
             }) {
-                BodyText(text: "view the inspiration", color: .link, alignment: .center, strikethrough: false)
+                Text("view inspo")
+                    .bodyText(color: .link, alignment: .center)
             }
                 .padding(.bottom, 10)
             Spacer()

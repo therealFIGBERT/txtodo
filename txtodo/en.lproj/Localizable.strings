@@ -1,0 +1,55 @@
+/*
+  Localizable.strings
+  txtodo
+
+  Created by FIGBERT on 4/28/20.
+  Copyright © 2020 FIGBERT Industries. All rights reserved.
+*/
+
+"title" = "txtodo";
+"floating" = "floating";
+"daily" = "daily";
+"tap" = "tap here";
+"edit task" = "edit task";
+"edit note" = "editing note";
+"create a task" = "create a task";
+"create a note" = "create a note";
+"delete" = "deleting";
+"cancel" = "cancel";
+"about" = "about";
+"settings" = "settings";
+"notifications enabled" = "notifications enabled";
+"notifications disabled" = "notifications disabled";
+"time scheduled" = "time scheduled";
+"hour" = "hour";
+"minutes" = "minutes";
+"show tutorial" = "show tutorial";
+"aboutOne" = "pronounced \"text to do,\" txtodo is a minimalist open-source todo list app made by FIGBERT and inspired by Jeff Huang. it lists your immediate, short-term tasks to help you get things done without overthinking it.";
+"aboutTwo" = "after reading a post by Jeff Huang, i started thinking about how i managed my own daily tasks. i wanted to make a solution that could train me into being highly productive.";
+"aboutThree" = "that solution is txtodo. it manages immediate, short-term tasks to help you get things done. welcome to productivity. welcome to txtodo.";
+"view site" = "visit txtodo.app";
+"view inspo" = "view the inspiration";
+"confirm delete" = "confirm delete";
+"\"%@\" deleteWarning" = "\"%@\" will be gone forever, with no option to restore";
+"onboardingTitleOne" = "welcome to txtodo";
+"onboardingTitleTwo" = "create a task";
+"onboardingTitleThree" = "edit a task";
+"onboardingTitleFour" = "types of tasks";
+"onboardingTitleFive" = "create a note";
+"onboardingTitleSix" = "edit a note";
+"onboardingTitleSeven" = "customize notifications";
+"onboardingTitleEight" = "thanks for downloading";
+"onboardingCaptionOne" = "txtodo is a minimalist, open-source productivity app made by FIGBERT. it lists daily tasks that expire at midnight to help you get things done without overthinking them.";
+"onboardingCaptionTwo" = "tap on the button above to create a new task, and edit the text and priority. try out the live demo above.";
+"onboardingCaptionThree" = "double tap a task to edit the task, press return to confirm your changes, and long press to delete. try out the live demo above.";
+"onboardingCaptionFour" = "there are two types of tasks in txtodo: daily and floating. unlike daily tasks, which disappear at midnight, floating tasks never expire – however, you can only have three at a time!";
+"onboardingCaptionFive" = "tap on the button above to create a new note. notes provide extra details about tasks, and they're accessed by tapping once on a task. try out the live demo above.";
+"onboardingCaptionSix" = "double tap a note to edit the text, press return to confirm your changes, and long press to delete. try out the live demo above.";
+"onboardingCaptionSeven" = "txtodo uses notifications to remind users to set the day's tasks in the morning, but they are not required. notifications are scheduled at 8:30am by default. notifications can be modified from the settings menu.";
+"onboardingCaptionEight" = "more projects are available at figbert.com";
+"set notifications to 08:30" = "set notifications to 8:30am";
+"notifications set for %@" = "notifications set for %@";
+"app pitch" = "a minimalist open-source todo app";
+"made by FIGBERT" = "made by FIGBERT";
+"open txtodo" = "open txtodo";
+"take some time to plan your day" = "take some time to plan your day";

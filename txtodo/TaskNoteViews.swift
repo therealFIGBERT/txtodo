@@ -23,9 +23,11 @@ struct floatingTaskNote: View {
             MainImage(name: "minus", color: .label)
                 .padding(.trailing, 20)
             if removed {
-                BodyText(text: "deleting...", color: .label, alignment: .leading, strikethrough: false)
+                Text("delete")
+                    .bodyText(color: .label, alignment: .leading)
             } else if !editing {
-                BodyText(text: note, color: .label, alignment: .leading, strikethrough: false)
+                Text(note)
+                    .bodyText(color: .label, alignment: .leading)
                     .onTapGesture(count: 2) {
                         self.editing = true
                     }
@@ -33,13 +35,14 @@ struct floatingTaskNote: View {
                         self.confirmingDelete = true
                     }
             } else {
-                EditingField(placeholder: "editing note", text: $note, alignment: .leading, onEnd: {
+                TextField("edit note", text: $note) {
                     self.editing = false
                     self.managedObjectContext.performAndWait {
                         self.task.notes[self.index] = self.note
                         try? self.managedObjectContext.save()
                     }
-                })
+                }
+                    .editingField(alignment: .leading)
             }
             Spacer()
         }
@@ -47,7 +50,7 @@ struct floatingTaskNote: View {
             .alert(isPresented: $confirmingDelete) {
                 Alert(
                     title: Text("confirm delete"),
-                    message: Text("\"\(note)\" will be gone forever, with no option to restore"),
+                    message: Text(String(format: NSLocalizedString("\"%@\" deleteWarning", comment: ""), note)),
                     primaryButton: .destructive(Text("delete")) {
                         self.managedObjectContext.performAndWait {
                             self.task.notes.remove(at: self.index)
@@ -75,9 +78,11 @@ struct dailyTaskNote: View {
             MainImage(name: "minus", color: .label)
                 .padding(.trailing, 20)
             if removed {
-                BodyText(text: "deleting...", color: .label, alignment: .leading, strikethrough: false)
+                Text("delete")
+                    .bodyText(color: .label, alignment: .leading)
             } else if !editing {
-                BodyText(text: note, color: .label, alignment: .leading, strikethrough: false)
+                Text(note)
+                    .bodyText(color: .label, alignment: .leading)
                     .onTapGesture(count: 2) {
                         self.editing = true
                     }
@@ -85,13 +90,14 @@ struct dailyTaskNote: View {
                         self.confirmingDelete = true
                     }
             } else {
-                EditingField(placeholder: "editing note", text: $note, alignment: .leading, onEnd: {
+                TextField("edit note", text: $note) {
                     self.editing = false
                     self.managedObjectContext.performAndWait {
                         self.task.notes[self.index] = self.note
                         try? self.managedObjectContext.save()
                     }
-                })
+                }
+                    .editingField(alignment: .leading)
             }
             Spacer()
         }
@@ -99,7 +105,7 @@ struct dailyTaskNote: View {
             .alert(isPresented: $confirmingDelete) {
                 Alert(
                     title: Text("confirm delete"),
-                    message: Text("\"\(note)\" will be gone forever, with no option to restore"),
+                    message: Text(String(format: NSLocalizedString("\"%@\" deleteWarning", comment: ""), note)),
                     primaryButton: .destructive(Text("delete")) {
                         self.managedObjectContext.performAndWait {
                             self.task.notes.remove(at: self.index)
@@ -119,7 +125,9 @@ struct floatingTaskNotes: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                Header(text: task.name, underline: true)
+                Text(task.name)
+                    .underline()
+                    .header()
                     .padding(.horizontal)
                 ForEach(Array(task.notes.enumerated()), id: \.element) { index, note in
                     floatingTaskNote(
@@ -145,7 +153,9 @@ struct dailyTaskNotes: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                Header(text: task.name, underline: true)
+                Text(task.name)
+                    .underline()
+                    .header()
                     .padding(.horizontal)
                 ForEach(Array(task.notes.enumerated()), id: \.element) { index, note in
                     dailyTaskNote(

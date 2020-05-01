@@ -34,9 +34,15 @@ struct HomeScreen: View {
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    Header(text: "txtodo", underline: true)
+                    Text("title")
+                        .underline()
+                        .header()
                     if self.floatingTasks.count > 0 {
-                        SectionLabel(text: "floating")
+                        HStack {
+                            Text("floating")
+                                .sectionLabel()
+                            Spacer()
+                        }
                     }
                     ForEach(self.floatingTasks, id: \.id) { task in
                         floatingTaskView(
@@ -56,7 +62,11 @@ struct HomeScreen: View {
                             })
                     }
                     if self.dailyTasks.count > 0 {
-                        SectionLabel(text: "daily")
+                        HStack {
+                            Text("daily")
+                                .sectionLabel()
+                            Spacer()
+                        }
                     }
                     ForEach(self.dailyTasks, id: \.id) { task in
                         dailyTaskView(

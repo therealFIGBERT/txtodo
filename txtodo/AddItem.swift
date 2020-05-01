@@ -50,7 +50,8 @@ struct addMainTask: View {
                     HStack {
                         MainImage(name: "plus.square", color: .systemGray3)
                         Spacer()
-                        BodyText(text: type == "note" ? "daily" : "floating", color: .systemGray3, alignment: .center, strikethrough: false)
+                        Text(type == "note" ? "daily" : "floating")
+                            .bodyText(color: .systemGray3, alignment: .center)
                         Spacer()
                         MainImage(name: "plus.square", color: .systemGray3)
                     }
@@ -66,7 +67,8 @@ struct addMainTask: View {
                         MainImage(name: "multiply.square", color: .systemGray3)
                     }
                     Spacer()
-                    EditingField(placeholder: "tap here", text: $newTaskText, alignment: .center, onEnd: { })
+                    TextField("tap", text: $newTaskText)
+                        .editingField()
                     Picker(
                         selection: $newTaskPriority,
                         label: Text("task priority"),
@@ -130,7 +132,8 @@ struct addFloatingNote: View {
                     HStack {
                         MainImage(name: "plus.square", color: .systemGray3)
                         Spacer()
-                        BodyText(text: "create a note", color: .systemGray3, alignment: .center, strikethrough: false)
+                        Text("create a note")
+                            .bodyText(color: .systemGray3, alignment: .center)
                         Spacer()
                         MainImage(name: "plus.square", color: .systemGray3)
                     }
@@ -146,7 +149,8 @@ struct addFloatingNote: View {
                         MainImage(name: "multiply.square", color: .systemGray3)
                     }
                     Spacer()
-                    EditingField(placeholder: "tap here", text: $newNoteText, alignment: .center, onEnd: { })
+                    TextField("tap", text: $newNoteText)
+                        .editingField()
                     Spacer()
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -180,7 +184,8 @@ struct addDailyNote: View {
                     HStack {
                         MainImage(name: "plus.square", color: .systemGray3)
                         Spacer()
-                        BodyText(text: "create a note", color: .systemGray3, alignment: .center, strikethrough: false)
+                        Text("create a note")
+                            .bodyText(color: .systemGray3, alignment: .center)
                         Spacer()
                         MainImage(name: "plus.square", color: .systemGray3)
                     }
@@ -196,7 +201,8 @@ struct addDailyNote: View {
                         MainImage(name: "multiply.square", color: .systemGray3)
                     }
                     Spacer()
-                    EditingField(placeholder: "tap here", text: $newNoteText, alignment: .center, onEnd: { })
+                    TextField("tap", text: $newNoteText)
+                        .editingField()
                     Spacer()
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

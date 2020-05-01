@@ -8,56 +8,41 @@
 
 import SwiftUI
 
-struct Header: View {
-    let text: String
-    let underline: Bool
-    var body: some View {
-        Text(text)
-            .underline(underline)
+struct Header: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
             .font(.system(size: 25, weight: .medium, design: .rounded))
-            .foregroundColor(Color.init(UIColor.label))
+            .foregroundColor(Color.init(.label))
             .multilineTextAlignment(.center)
     }
 }
 
-struct SectionLabel: View {
-    let text: String
-    var body: some View {
-        HStack {
-            Text(text)
-                .font(.system(size: 10, weight: .bold))
-                .foregroundColor(Color.init(.systemGray))
-                .multilineTextAlignment(.leading)
-            Spacer()
-        }
+struct SectionLabel: ViewModifier {
+    func body(content: Content) -> some View {
+        return content
+            .font(.system(size: 10, weight: .bold))
+            .foregroundColor(Color.init(.systemGray))
+            .multilineTextAlignment(.leading)
     }
 }
 
-struct BodyText: View {
-    let text: String
+struct BodyText: ViewModifier {
     let color: UIColor
     let alignment: TextAlignment
-    let strikethrough: Bool
-    var body: some View {
-        Text(text)
+    func body(content: Content) -> some View {
+        return content
             .font(.system(size: 20, weight: .light, design: .rounded))
-            .strikethrough(strikethrough)
             .foregroundColor(Color.init(color))
             .multilineTextAlignment(alignment)
     }
 }
 
-struct EditingField: View {
-    let placeholder: String
-    var text: Binding<String>
+struct EditingField: ViewModifier {
     let alignment: TextAlignment
-    let onEnd: () -> Void
-    var body: some View {
-        TextField(placeholder, text: text) {
-            self.onEnd()
-        }
+    func body(content: Content) -> some View {
+        return content
             .font(.system(size: 20, weight: .light, design: .rounded))
-            .foregroundColor(Color.init(UIColor.systemGray))
+            .foregroundColor(Color.init(.systemGray))
             .multilineTextAlignment(alignment)
             .autocapitalization(.none)
     }
@@ -70,5 +55,20 @@ struct MainImage: View {
         Image(systemName: name)
             .font(.system(size: 25, weight: .light, design: .rounded))
             .foregroundColor(Color.init(color))
+    }
+}
+
+extension View {
+    func header() -> some View {
+        return self.modifier(Header())
+    }
+    func sectionLabel() -> some View {
+        return self.modifier(SectionLabel())
+    }
+    func bodyText(color: UIColor = .label, alignment: TextAlignment = .center) -> some View {
+        return self.modifier(BodyText(color: color, alignment: alignment))
+    }
+    func editingField(alignment: TextAlignment = .center) -> some View {
+        return self.modifier(EditingField(alignment: alignment))
     }
 }
