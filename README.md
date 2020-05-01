@@ -17,7 +17,7 @@ Download it on the App Store and give it a try! ~~not yet though I'm still worki
 ## short term goals
 - [x] implement a "floating" task system for long term goals
 - [ ] add i18n
-	- [ ] Hebrew
+	- [x] Hebrew
 	- [ ] Arabic
 	- [ ] Chinese
 	- [ ] Spanish
