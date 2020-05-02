@@ -46,11 +46,14 @@ struct Onboarding: View {
                     PageControl(numberOfPages: subviews.count, currentPageIndex: $currentPage)
                     Spacer()
                     Button(action: {
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         if self.currentPage + 1 == self.subviews.count {
                             self.currentPage = 0
                         } else {
                             self.currentPage += 1
                         }
+                        generator.impactOccurred()
                     }) {
                         if currentPage != subviews.count - 1 {
                             Image(systemName: "arrow.right.circle")
@@ -66,7 +69,10 @@ struct Onboarding: View {
                     }
                     if currentPage == subviews.count - 1 {
                         Button(action: {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
                             self.globalVars.showOnboarding = false
+                            generator.impactOccurred()
                         }) {
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 30, weight: .light))

@@ -44,8 +44,11 @@ struct addMainTask: View {
         Group {
             if !addingTask {
                 Button(action: {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.prepare()
                     self.addingTask = true
                     self.activityBinding = false
+                    generator.impactOccurred()
                 }) {
                     HStack {
                         MainImage(name: "plus.square", color: .systemGray3)
@@ -59,10 +62,13 @@ struct addMainTask: View {
             } else {
                 HStack {
                     Button(action: {
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         self.newTaskText = ""
                         self.newTaskPriority = 1
                         self.addingTask = false
                         self.activityBinding = true
+                        generator.impactOccurred()
                     }) {
                         MainImage(name: "multiply.square", color: .systemGray3)
                     }
@@ -82,6 +88,8 @@ struct addMainTask: View {
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                         guard self.newTaskText != "" else {return}
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         if self.type == "note" {
                             let newDailyTask = DailyTask(context: self.managedObjectContext)
                             newDailyTask.completed = false
@@ -105,6 +113,7 @@ struct addMainTask: View {
                         } catch {
                             print(error.localizedDescription)
                         }
+                        generator.impactOccurred()
                         self.newTaskText = ""
                         self.newTaskPriority = 1
                         self.addingTask = false
@@ -127,7 +136,10 @@ struct addFloatingNote: View {
         Group {
             if !addingNote {
                 Button(action: {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.prepare()
                     self.addingNote = true
+                    generator.impactOccurred()
                 }) {
                     HStack {
                         MainImage(name: "plus.square", color: .systemGray3)
@@ -143,8 +155,11 @@ struct addFloatingNote: View {
                 HStack {
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         self.newNoteText = ""
                         self.addingNote = false
+                        generator.impactOccurred()
                     }) {
                         MainImage(name: "multiply.square", color: .systemGray3)
                     }
@@ -155,10 +170,13 @@ struct addFloatingNote: View {
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                         guard self.newNoteText != "" else {return}
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         self.managedObjectContext.performAndWait {
                             self.task.notes.append(self.newNoteText)
                             try? self.managedObjectContext.save()
                         }
+                        generator.impactOccurred()
                         self.newNoteText = ""
                         self.addingNote = false
                     }) {
@@ -179,7 +197,10 @@ struct addDailyNote: View {
         Group {
             if !addingNote {
                 Button(action: {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.prepare()
                     self.addingNote = true
+                    generator.impactOccurred()
                 }) {
                     HStack {
                         MainImage(name: "plus.square", color: .systemGray3)
@@ -195,8 +216,11 @@ struct addDailyNote: View {
                 HStack {
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         self.newNoteText = ""
                         self.addingNote = false
+                        generator.impactOccurred()
                     }) {
                         MainImage(name: "multiply.square", color: .systemGray3)
                     }
@@ -207,10 +231,13 @@ struct addDailyNote: View {
                     Button(action: {
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                         guard self.newNoteText != "" else {return}
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         self.managedObjectContext.performAndWait {
                             self.task.notes.append(self.newNoteText)
                             try? self.managedObjectContext.save()
                         }
+                        generator.impactOccurred()
                         self.newNoteText = ""
                         self.addingNote = false
                     }) {

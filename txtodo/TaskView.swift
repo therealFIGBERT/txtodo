@@ -23,6 +23,8 @@ struct floatingTaskView: View {
         HStack {
             if !deleted {
                 Button(action: {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.prepare()
                     self.completed.toggle()
                     self.managedObjectContext.performAndWait {
                         self.task.completed = self.completed
@@ -34,6 +36,7 @@ struct floatingTaskView: View {
                         }
                         try? self.managedObjectContext.save()
                     }
+                    generator.impactOccurred()
                 }) {
                     if task.completed {
                         MainImage(name: "checkmark.square", color: .systemGray)
@@ -136,11 +139,14 @@ struct dailyTaskView: View {
         HStack {
             if !deleted {
                 Button(action: {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.prepare()
                     self.completed.toggle()
                     self.managedObjectContext.performAndWait {
                         self.task.completed = self.completed
                         try? self.managedObjectContext.save()
                     }
+                    generator.impactOccurred()
                 }) {
                     if task.completed {
                         MainImage(name: "checkmark.square", color: .systemGray)

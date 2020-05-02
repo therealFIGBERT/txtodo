@@ -27,7 +27,10 @@ struct Menu: View {
                     .font(.system(size: 30, weight: .light))
                     .foregroundColor(Color.init(UIColor.label))
                     .onTapGesture {
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         self.active.toggle()
+                        generator.impactOccurred()
                         self.showSettings.toggle()
                         self.showAbout.toggle()
                     }
@@ -49,7 +52,10 @@ struct MenuItem: View {
         }
             .foregroundColor(Color.init(UIColor.label))
             .onTapGesture {
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.prepare()
                 self.viewing = true
+                generator.impactOccurred()
             }
             .sheet(isPresented: $viewing, content: {
                 if self.txt == "settings" {
@@ -86,7 +92,10 @@ struct Settings: View {
                         Text("time scheduled")
                         Spacer()
                         Button(action: {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
                             self.changingTime = true
+                            generator.impactOccurred()
                         }) {
                             Text("0\(globalVars.notificationHour):\(globalVars.notificationMinute != 0 ? "\(globalVars.notificationMinute)" : "00")")
                         }
@@ -133,7 +142,10 @@ struct Settings: View {
                 }
                 Section {
                     Button(action: {
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
                         self.globalVars.showOnboarding = true
+                        generator.impactOccurred()
                     }) {
                         HStack {
                             Image(systemName: "doc.richtext")
