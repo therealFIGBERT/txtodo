@@ -103,38 +103,39 @@ struct Settings: View {
                             .sheet(isPresented: $changingTime, content: {
                                 VStack {
                                     Text("time scheduled")
-                                        .font(.system(size: 25, weight: .medium, design: .rounded))
                                         .underline()
-                                    HStack {
-                                        Picker(
-                                            selection: self.$globalVars.notificationHour,
-                                            label: Text("hour"),
-                                            content: {
-                                                Text("05").tag(5)
-                                                Text("06").tag(6)
-                                                Text("07").tag(7)
-                                                Text("08").tag(8)
-                                                Text("09").tag(9)
-                                            }
-                                        )
-                                            .frame(width: 50, height: 125)
-                                            .labelsHidden()
-                                        Text(":")
-                                            .padding(.horizontal, 50)
-                                        Picker(
-                                            selection: self.$globalVars.notificationMinute,
-                                            label: Text("minutes"),
-                                            content: {
-                                                Text("00").tag(0)
-                                                Text("10").tag(10)
-                                                Text("15").tag(15)
-                                                Text("30").tag(30)
-                                                Text("45").tag(45)
-                                                Text("50").tag(50)
-                                            }
-                                        )
-                                            .frame(width: 50, height: 125)
-                                            .labelsHidden()
+                                        .header()
+                                        .padding(.top, 25)
+                                    GeometryReader { geometry in
+                                        HStack {
+                                            Picker(
+                                                selection: self.$globalVars.notificationHour,
+                                                label: Text("hour"),
+                                                content: {
+                                                    Text("05").tag(5)
+                                                    Text("06").tag(6)
+                                                    Text("07").tag(7)
+                                                    Text("08").tag(8)
+                                                    Text("09").tag(9)
+                                                }
+                                            )
+                                                .frame(width: geometry.size.width / 2, height: 100)
+                                                .labelsHidden()
+                                            Picker(
+                                                selection: self.$globalVars.notificationMinute,
+                                                label: Text("minutes"),
+                                                content: {
+                                                    Text("00").tag(0)
+                                                    Text("10").tag(10)
+                                                    Text("15").tag(15)
+                                                    Text("30").tag(30)
+                                                    Text("45").tag(45)
+                                                    Text("50").tag(50)
+                                                }
+                                            )
+                                                .frame(width: geometry.size.width / 2, height: 100)
+                                                .labelsHidden()
+                                        }
                                     }
                                 }
                             })
