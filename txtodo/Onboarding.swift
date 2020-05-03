@@ -515,7 +515,7 @@ struct RequestNotifications: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 20)
                                     .stroke(self.globalVars.notifications ? Color.green : Color.blue, lineWidth: 1)
-                        )
+                            )
                     } else {
                         Text("set notifications to 08:30")
                             .font(.system(size: 20, weight: .light, design: .rounded))
