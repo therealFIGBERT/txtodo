@@ -202,8 +202,9 @@ struct AddTaskDemo: View {
                     HStack {
                         MainImage(name: "multiply.square", color: .systemGray)
                             .onTapGesture {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                                 self.text = ""
-                                self.priority = 0
+                                self.priority = 1
                                 self.addingTask = false
                             }
                         Spacer()
@@ -221,13 +222,14 @@ struct AddTaskDemo: View {
                         Spacer()
                         MainImage(name: "plus.square", color: .systemGray)
                             .onTapGesture {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                                 if self.task.isEmpty == true {
                                     self.task.append(taskStruct(text: self.text, priority: self.priority))
                                 } else {
                                     self.task[0] = taskStruct(text: self.text, priority: self.priority)
                                 }
                                 self.text = ""
-                                self.priority = 0
+                                self.priority = 1
                                 self.addingTask = false
                             }
                     }

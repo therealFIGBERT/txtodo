@@ -62,6 +62,7 @@ struct addMainTask: View {
             } else {
                 HStack {
                     Button(action: {
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
                         self.newTaskText = ""
