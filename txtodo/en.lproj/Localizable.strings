@@ -18,12 +18,15 @@
 "cancel" = "cancel";
 "about" = "about";
 "settings" = "settings";
+"notifications" = "notifications";
 "notifications enabled" = "notifications enabled";
 "notifications disabled" = "notifications disabled";
 "time scheduled" = "time scheduled";
 "hour" = "hour";
 "minutes" = "minutes";
+"tutorial" = "tutorial";
 "show tutorial" = "show tutorial";
+"tip jar" = "tip jar";
 "aboutOne" = "pronounced \"text to do,\" txtodo is a minimalist open-source todo list app made by FIGBERT and inspired by Jeff Huang. it lists your immediate, short-term tasks to help you get things done without overthinking it.";
 "aboutTwo" = "after reading a post by Jeff Huang, i started thinking about how i managed my own daily tasks. i wanted to make a solution that could train me into being highly productive.";
 "aboutThree" = "that solution is txtodo. it manages immediate, short-term tasks to help you get things done. welcome to productivity. welcome to txtodo.";
@@ -53,3 +56,11 @@
 "made by FIGBERT" = "made by FIGBERT";
 "open txtodo" = "open txtodo";
 "take some time to plan your day" = "take some time to plan your day";
+"failed to load tips" = "failed to load tips";
+"tip failed" = "tip failed";
+"payment not available" = "payment not available";
+"tip unsuccessful" = "tip unsuccessful";
+"thanks for the tip" = "thanks for the tip";
+"success" = "success";
+"error" = "error";
+"thanks" = "thanks";

@@ -17,6 +17,9 @@
 		3A96BE6A23F90F3A00E17400 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96BE6923F90F3A00E17400 /* DarkMode.swift */; };
 		3A9A4563240A36B500A77520 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A4562240A36B500A77520 /* AddItem.swift */; };
 		3A9A4565240A37B000A77520 /* TaskNoteViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A4564240A37B000A77520 /* TaskNoteViews.swift */; };
+		3AA16A692463674400C5D848 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA16A682463674400C5D848 /* StoreKit.framework */; };
+		3AA16A6B2463E6C100C5D848 /* IAP_ProductIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AA16A6A2463E6C100C5D848 /* IAP_ProductIDs.plist */; };
+		3AA16A6D2463E85700C5D848 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA16A6C2463E85700C5D848 /* IAPManager.swift */; };
 		3AB0427624465E3F00CE6380 /* DailyTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0427224465E3F00CE6380 /* DailyTask+CoreDataClass.swift */; };
 		3AB0427724465E3F00CE6380 /* DailyTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0427324465E3F00CE6380 /* DailyTask+CoreDataProperties.swift */; };
 		3AB0427824465E3F00CE6380 /* FloatingTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0427424465E3F00CE6380 /* FloatingTask+CoreDataClass.swift */; };
@@ -43,6 +46,9 @@
 		3A96BE6923F90F3A00E17400 /* DarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkMode.swift; sourceTree = "<group>"; };
 		3A9A4562240A36B500A77520 /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
 		3A9A4564240A37B000A77520 /* TaskNoteViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNoteViews.swift; sourceTree = "<group>"; };
+		3AA16A682463674400C5D848 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3AA16A6A2463E6C100C5D848 /* IAP_ProductIDs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = IAP_ProductIDs.plist; sourceTree = "<group>"; };
+		3AA16A6C2463E85700C5D848 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		3AB0427224465E3F00CE6380 /* DailyTask+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyTask+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3AB0427324465E3F00CE6380 /* DailyTask+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3AB0427424465E3F00CE6380 /* FloatingTask+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingTask+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -64,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA16A692463674400C5D848 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,10 +89,19 @@
 			path = "Data Models";
 			sourceTree = "<group>";
 		};
+		3AA16A672463674400C5D848 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AA16A682463674400C5D848 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3AE3ECAF23F8C8C900F80147 = {
 			isa = PBXGroup;
 			children = (
 				3AE3ECBA23F8C8C900F80147 /* txtodo */,
+				3AA16A672463674400C5D848 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +135,8 @@
 				3AE3ECC423F8C8CA00F80147 /* Assets.xcassets */,
 				3AE3ECC923F8C8CA00F80147 /* LaunchScreen.storyboard */,
 				3AE3ECCC23F8C8CA00F80147 /* Info.plist */,
+				3AA16A6A2463E6C100C5D848 /* IAP_ProductIDs.plist */,
+				3AA16A6C2463E85700C5D848 /* IAPManager.swift */,
 				3A167A28241C8C2B00E942D6 /* Data Models */,
 				3AE3ECC623F8C8CA00F80147 /* Preview Content */,
 			);
@@ -193,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE3ECCB23F8C8CA00F80147 /* LaunchScreen.storyboard in Resources */,
+				3AA16A6B2463E6C100C5D848 /* IAP_ProductIDs.plist in Resources */,
 				3A8D7625245A84B500B08E0C /* Localizable.strings in Resources */,
 				3AE3ECC823F8C8CA00F80147 /* Preview Assets.xcassets in Resources */,
 				3AE3ECC523F8C8CA00F80147 /* Assets.xcassets in Resources */,
@@ -213,6 +232,7 @@
 				3A9A4565240A37B000A77520 /* TaskNoteViews.swift in Sources */,
 				3A2FEF832422E4B00003EDBA /* GlobalVars.swift in Sources */,
 				3A93349D243ACC700016A8E7 /* KeyboardResponder.swift in Sources */,
+				3AA16A6D2463E85700C5D848 /* IAPManager.swift in Sources */,
 				3AB0427724465E3F00CE6380 /* DailyTask+CoreDataProperties.swift in Sources */,
 				3AE3ECBC23F8C8C900F80147 /* AppDelegate.swift in Sources */,
 				3AB0427824465E3F00CE6380 /* FloatingTask+CoreDataClass.swift in Sources */,

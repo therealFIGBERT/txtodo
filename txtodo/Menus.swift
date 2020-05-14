@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import UIKit
+import StoreKit
 
 struct Menu: View {
     @EnvironmentObject var globalVars: GlobalVars
@@ -72,7 +74,14 @@ struct MenuItem: View {
 
 struct Settings: View {
     @EnvironmentObject var globalVars: GlobalVars
+    @Environment(\.colorScheme) var colorScheme
     @State private var changingTime: Bool = false
+    @State private var IAPs: [SKProduct] = []
+    @State private var IAPLoading: Bool = true
+    @State private var IAPError: String = ""
+    @State private var IAPAlertViewing: Bool = false
+    @State private var IAPAlertHeader: String = ""
+    @State private var IAPAlertBody: String = ""
     var body: some View {
         VStack {
             Text("settings")
@@ -80,7 +89,7 @@ struct Settings: View {
                 .header()
                 .padding(.top, 25)
             Form {
-                Section {
+                Section(header: Text(String(NSLocalizedString("notifications", comment: "")))) {
                     Toggle(isOn: $globalVars.notifications) {
                         HStack {
                             Image(systemName: "app.badge")
@@ -141,7 +150,7 @@ struct Settings: View {
                             })
                     }
                 }
-                Section {
+                Section(header: Text(String(NSLocalizedString("tutorial", comment: "")))) {
                     Button(action: {
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
@@ -154,9 +163,75 @@ struct Settings: View {
                         }
                     }
                 }
+                Section(header: Text(String(NSLocalizedString("tip jar", comment: "")))) {
+                    HStack {
+                        Spacer()
+                        if IAPLoading {
+                            ActivityIndicator()
+                            Spacer()
+                        } else {
+                            if IAPError == "" {
+                                ForEach(IAPs, id: \.self) { product in
+                                    Group {
+                                        Text(IAPManager.shared.getPriceFormatted(for: product) ?? "error")
+                                            .foregroundColor(Color.white)
+                                            .padding(.horizontal)
+                                            .padding(.vertical, 3)
+                                            .background(Color.blue.opacity(self.colorScheme == .dark ? 0.3 : 0.75).cornerRadius(10))
+                                            .onTapGesture {
+                                                self.purchase(product: product)
+                                            }
+                                        Spacer()
+                                    }
+                                }
+                            } else {
+                                Text(String(format: NSLocalizedString(IAPError, comment:  "")))
+                                    .bodyText()
+                            }
+                        }
+                    }
+                        .onAppear(perform: {
+                            IAPManager.shared.getProducts { (result) in
+                                switch result {
+                                    case .success(let products): self.IAPs = products; self.IAPError = ""; self.IAPLoading = false;
+                                    case .failure(let error): print(error); self.IAPError = "failed to load tips"; self.IAPLoading = false;
+                                }
+                            }
+                        })
+                        .alert(isPresented: $IAPAlertViewing) {
+                            Alert(
+                                title: Text(String(format: NSLocalizedString(IAPAlertHeader, comment: ""))),
+                                message: Text(String(format: NSLocalizedString(IAPAlertBody, comment: ""))),
+                                dismissButton: .default(Text("thanks"))
+                            )
+                        }
+                }
             }
                 .navigationBarTitle("settings", displayMode: .inline)
                 .listStyle(GroupedListStyle())
+        }
+    }
+    
+    func purchase(product: SKProduct) -> Void {
+        if !IAPManager.shared.canMakePayments() {
+            self.IAPAlertHeader = "tip failed"
+            self.IAPAlertBody = "payment not available"
+        } else {
+            IAPManager.shared.buy(product: product) { result in
+                switch result {
+                    case .success(_): self.IAPAlertHeader = "success"; self.IAPAlertBody = "thanks for the tip"; self.IAPAlertViewing = true;
+                    case .failure(let error): self.IAPAlertHeader = "error"; self.IAPAlertBody = "tip unsuccessful"; print(error); self.IAPAlertViewing = true;
+                }
+            }
+        }
+    }
+    
+    struct ActivityIndicator: UIViewRepresentable {
+        func makeUIView(context: Context) -> UIActivityIndicatorView {
+            return UIActivityIndicatorView()
+        }
+        func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
+            uiView.startAnimating()
         }
     }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>com.figbertind.txtodo.five_usd_tip</string>
+	<string>com.figbertind.txtodo.ten_usd_tip</string>
+	<string>com.figbertind.txtodo.fifteen_usd_tip</string>
+</array>
+</plist>
