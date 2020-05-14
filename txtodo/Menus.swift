@@ -26,7 +26,7 @@ struct Menu: View {
                     MenuItem(img: "book", txt: "about")
                 }
                 Image(systemName: active ? "control" : "line.horizontal.3")
-                    .font(.system(size: 30, weight: .light))
+                    .font(.system(size: 35, weight: .light))
                     .foregroundColor(Color.init(UIColor.label))
                     .onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .medium)
