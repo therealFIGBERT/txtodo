@@ -187,6 +187,7 @@ struct Settings: View {
                             } else {
                                 Text(String(format: NSLocalizedString(IAPError, comment:  "")))
                                     .bodyText()
+                                Spacer()
                             }
                         }
                     }
