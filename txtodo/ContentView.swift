@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var onboarding: GlobalVars
+    @EnvironmentObject var globalVars: GlobalVars
     var body: some View {
         Group {
-            if !onboarding.showOnboarding {
+            if !globalVars.showOnboarding {
                 HomeScreen()
             } else {
                 Onboarding()
