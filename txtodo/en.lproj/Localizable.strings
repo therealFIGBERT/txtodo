@@ -44,7 +44,7 @@
 "onboardingTitleEight" = "thanks for downloading";
 "onboardingCaptionOne" = "txtodo is a minimalist, open-source productivity app made by FIGBERT. it lists daily tasks that expire at midnight to help you get things done without overthinking them.";
 "onboardingCaptionTwo" = "tap on the button above to create a new task, and edit the text and priority. try out the live demo above.";
-"onboardingCaptionThree" = "double tap a task to edit the task, press return to confirm your changes, and long press to delete. try out the live demo above.";
+"onboardingCaptionThree" = "double tap a task's text to edit the text, and press return to confirm your changes. double-tap a task's priority to change the priority. long press to delete the task. try out the live demo above.";
 "onboardingCaptionFour" = "there are two types of tasks in txtodo: daily and floating. unlike daily tasks, which disappear at midnight, floating tasks never expire – however, you can only have three at a time!";
 "onboardingCaptionFive" = "tap on the button above to create a new note. notes provide extra details about tasks, and they're accessed by tapping once on a task. try out the live demo above.";
 "onboardingCaptionSix" = "double tap a note to edit the text, press return to confirm your changes, and long press to delete. try out the live demo above.";
