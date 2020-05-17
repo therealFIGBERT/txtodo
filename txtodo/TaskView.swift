@@ -16,11 +16,23 @@ struct floatingTaskView: View {
     @State var name: String
     @State var priority: Int
     @State var deleted: Bool = false
-    @State private var editing: Bool = false
+    @State private var editingText: Bool = false
+    @State private var editingPriority: Bool = false
     @State private var viewingNotes: Bool = false
     @State private var confirmingDelete: Bool = false
     var body: some View {
-        HStack {
+        let priorityIntermediary = Binding<Int>(
+            get: { self.priority },
+            set: { value in
+                self.priority = value
+                self.managedObjectContext.performAndWait {
+                    self.task.priority = Int16(value)
+                    try? self.managedObjectContext.save()
+                }
+                self.editingPriority = false
+            }
+        )
+        return HStack {
             if !deleted {
                 Button(action: {
                     let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -51,12 +63,14 @@ struct floatingTaskView: View {
             if deleted {
                 Text("delete")
                     .bodyText()
-            } else if !editing {
+            } else if !editingText {
                 Text(task.name)
                     .strikethrough(completed)
                     .bodyText(color: completed ? .systemGray : .label, alignment: .center)
                     .onTapGesture(count: 2) {
-                        self.editing = true
+                        if !self.completed {
+                            self.editingText = true
+                        }
                     }
                     .onLongPressGesture {
                         self.confirmingDelete = true
@@ -70,10 +84,9 @@ struct floatingTaskView: View {
                     })
             } else {
                 TextField("edit task", text: $name) {
-                    self.editing = false
+                    self.editingText = false
                     self.managedObjectContext.performAndWait {
                         self.task.name = self.name
-                        self.task.priority = Int16(self.priority)
                         try? self.managedObjectContext.save()
                     }
                 }
@@ -83,23 +96,38 @@ struct floatingTaskView: View {
             if deleted {
                 Text("     ")
                     .font(.system(size: 10, weight: .light))
-            } else if !editing {
+            } else if !editingPriority {
                 if Int(task.priority) == 1 {
                     Text("  !  ")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color.init(completed ? UIColor.systemGray : UIColor.label))
+                        .onTapGesture(count: 2) {
+                            if !self.completed {
+                                self.editingPriority = true
+                            }
+                        }
                 } else if Int(task.priority) == 2 {
                     Text(" ! ! ")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color.init(completed ? UIColor.systemGray : UIColor.label))
+                        .onTapGesture(count: 2) {
+                            if !self.completed {
+                                self.editingPriority = true
+                            }
+                        }
                 } else {
                     Text("! ! !")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color.init(completed ? UIColor.systemGray : UIColor.label))
+                        .onTapGesture(count: 2) {
+                            if !self.completed {
+                                self.editingPriority = true
+                            }
+                        }
                 }
             } else {
                 Picker(
-                    selection: $priority,
+                    selection: priorityIntermediary,
                     label: Text("task priority"),
                     content: {
                         Text("!").tag(1)
@@ -132,11 +160,23 @@ struct dailyTaskView: View {
     @State var name: String
     @State var priority: Int
     @State var deleted: Bool = false
-    @State private var editing: Bool = false
+    @State private var editingText: Bool = false
+    @State private var editingPriority: Bool = false
     @State private var viewingNotes: Bool = false
     @State private var confirmingDelete: Bool = false
     var body: some View {
-        HStack {
+        let priorityIntermediary = Binding<Int>(
+            get: { self.priority },
+            set: { value in
+                self.priority = value
+                self.managedObjectContext.performAndWait {
+                    self.task.priority = Int16(value)
+                    try? self.managedObjectContext.save()
+                }
+                self.editingPriority = false
+            }
+        )
+        return HStack {
             if !deleted {
                 Button(action: {
                     let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -161,12 +201,14 @@ struct dailyTaskView: View {
             if deleted {
                 Text("delete")
                     .bodyText()
-            } else if !editing {
+            } else if !editingText {
                 Text(task.name)
                     .strikethrough(completed)
                     .bodyText(color: completed ? .systemGray : .label, alignment: .center)
                     .onTapGesture(count: 2) {
-                        self.editing = true
+                        if !self.completed {
+                            self.editingText = true
+                        }
                     }
                     .onLongPressGesture {
                         self.confirmingDelete = true
@@ -179,10 +221,9 @@ struct dailyTaskView: View {
                     })
             } else {
                 TextField("edit task", text: $name) {
-                    self.editing = false
+                    self.editingText = false
                     self.managedObjectContext.performAndWait {
                         self.task.name = self.name
-                        self.task.priority = Int16(self.priority)
                         try? self.managedObjectContext.save()
                     }
                 }
@@ -192,23 +233,38 @@ struct dailyTaskView: View {
             if deleted {
                 Text("     ")
                     .font(.system(size: 10, weight: .light))
-            } else if !editing {
+            } else if !editingPriority {
                 if Int(task.priority) == 1 {
                     Text("  !  ")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color.init(completed ? UIColor.systemGray : UIColor.label))
+                        .onTapGesture(count: 2) {
+                            if !self.completed {
+                                self.editingPriority = true
+                            }
+                        }
                 } else if Int(task.priority) == 2 {
                     Text(" ! ! ")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color.init(completed ? UIColor.systemGray : UIColor.label))
+                        .onTapGesture(count: 2) {
+                            if !self.completed {
+                                self.editingPriority = true
+                            }
+                        }
                 } else {
                     Text("! ! !")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color.init(completed ? UIColor.systemGray : UIColor.label))
+                        .onTapGesture(count: 2) {
+                            if !self.completed {
+                                self.editingPriority = true
+                            }
+                        }
                 }
             } else {
                 Picker(
-                    selection: $priority,
+                    selection: priorityIntermediary,
                     label: Text("task priority"),
                     content: {
                         Text("!").tag(1)
