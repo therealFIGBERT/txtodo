@@ -89,7 +89,7 @@ struct Settings: View {
                 .header()
                 .padding(.top, 25)
             Form {
-                Section(header: Text(String(NSLocalizedString("notifications", comment: "")))) {
+                Section {
                     Toggle(isOn: $globalVars.notifications) {
                         HStack {
                             Image(systemName: "app.badge")
@@ -150,7 +150,7 @@ struct Settings: View {
                             })
                     }
                 }
-                Section(header: Text(String(NSLocalizedString("tutorial", comment: "")))) {
+                Section {
                     Button(action: {
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
