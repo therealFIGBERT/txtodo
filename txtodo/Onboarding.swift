@@ -173,124 +173,17 @@ struct Introduction: View {
 }
 
 struct AddTaskDemo: View {
-    @State private var addingTask: Bool = false
-    @State private var text: String = ""
-    @State private var priority: Int = 1
-    @State private var task: [taskStruct] = []
     var body: some View {
         ZStack {
             Color.init(UIColor.systemGray6)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                ForEach(self.task, id: \.id) {
-                    taskView(text: $0.text, priority: $0.priority)
-                }
-                if !addingTask {
-                    HStack {
-                        MainImage(name: "plus.square", color: .systemGray)
-                        Spacer()
-                        Text("create a task")
-                            .bodyText(color: .systemGray, alignment: .center)
-                        Spacer()
-                        MainImage(name: "plus.square", color: .systemGray)
-                    }
-                        .padding(.horizontal, 25)
-                        .onTapGesture {
-                            self.addingTask = true
-                        }
-                } else {
-                    HStack {
-                        MainImage(name: "multiply.square", color: .systemGray)
-                            .onTapGesture {
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                self.text = ""
-                                self.priority = 1
-                                self.addingTask = false
-                            }
-                        Spacer()
-                        TextField("tap", text: $text)
-                            .editingField()
-                        Picker(
-                            selection: $priority,
-                            label: Text("task priority"),
-                            content: {
-                                Text("!").tag(1)
-                                Text("!!").tag(2)
-                                Text("!!!").tag(3)
-                        })
-                            .pickerStyle(SegmentedPickerStyle())
-                        Spacer()
-                        MainImage(name: "plus.square", color: .systemGray)
-                            .onTapGesture {
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                                if self.task.isEmpty == true {
-                                    self.task.append(taskStruct(text: self.text, priority: self.priority))
-                                } else {
-                                    self.task[0] = taskStruct(text: self.text, priority: self.priority)
-                                }
-                                self.text = ""
-                                self.priority = 1
-                                self.addingTask = false
-                            }
-                    }
-                        .padding(.horizontal, 25)
-                }
-            }
-        }
-    }
-    struct taskStruct {
-        let id: UUID = UUID()
-        var text: String
-        var priority: Int
-    }
-    struct taskView: View {
-        @State var text: String
-        @State var priority: Int
-        @State private var complete: Bool = false
-        @State private var editing: Bool = false
-        var body: some View {
             HStack {
-                MainImage(name: complete ? "checkmark.square" : "square", color: .label)
-                    .onTapGesture {
-                        self.complete.toggle()
-                    }
+                MainImage(name: "plus.square", color: .systemGray)
                 Spacer()
-                if !editing {
-                    Text(text)
-                        .bodyText()
-                        .onTapGesture(count: 2) {
-                            self.editing = true
-                        }
-                } else {
-                    TextField("editing", text: $text) { self.editing = false }
-                        .editingField()
-                }
+                Text("create a task")
+                    .bodyText(color: .systemGray, alignment: .center)
                 Spacer()
-                if !editing {
-                    if priority == 1 {
-                        Text("  !  ")
-                            .font(.system(size: 10, weight: .light))
-                    } else if priority == 2 {
-                        Text(" ! ! ")
-                            .font(.system(size: 10, weight: .light))
-                    } else if priority == 3 {
-                        Text("! ! !")
-                            .font(.system(size: 10, weight: .light))
-                    } else {
-                        Text("     ")
-                            .font(.system(size: 10, weight: .light))
-                    }
-                } else {
-                    Picker(
-                        selection: $priority,
-                        label: Text("task priority"),
-                        content: {
-                            Text("!").tag(1)
-                            Text("!!").tag(2)
-                            Text("!!!").tag(3)
-                    })
-                        .pickerStyle(SegmentedPickerStyle())
-                }
+                MainImage(name: "plus.square", color: .systemGray)
             }
                 .padding(.horizontal, 25)
         }
@@ -298,56 +191,18 @@ struct AddTaskDemo: View {
 }
 
 struct TaskDemo: View {
-    @State private var complete: Bool = false
-    @State private var text: String = "lorem ipsum"
-    @State private var priority: Int = 3
-    @State private var editing: Bool = false
     var body: some View {
         ZStack {
             Color.init(UIColor.systemGray6)
                 .edgesIgnoringSafeArea(.all)
             HStack {
-                MainImage(name: complete ? "checkmark.square" : "square", color: .label)
-                    .onTapGesture {
-                        self.complete.toggle()
-                    }
+                MainImage(name: "square", color: .label)
                 Spacer()
-                if !editing {
-                    Text(text)
-                        .bodyText()
-                        .onTapGesture(count: 2) {
-                            self.editing = true
-                        }
-                } else {
-                    TextField("editing", text: $text) { self.editing = false }
-                        .editingField()
-                }
+                Text("lorem ipsum")
+                    .bodyText()
                 Spacer()
-                if !editing {
-                    if priority == 1 {
-                        Text("  !  ")
-                            .font(.system(size: 10, weight: .light))
-                    } else if priority == 2 {
-                        Text(" ! ! ")
-                            .font(.system(size: 10, weight: .light))
-                    } else if priority == 3 {
-                        Text("! ! !")
-                            .font(.system(size: 10, weight: .light))
-                    } else {
-                        Text("     ")
-                            .font(.system(size: 10, weight: .light))
-                    }
-                } else {
-                    Picker(
-                        selection: $priority,
-                        label: Text("task priority"),
-                        content: {
-                            Text("!").tag(1)
-                            Text("!!").tag(2)
-                            Text("!!!").tag(3)
-                    })
-                        .pickerStyle(SegmentedPickerStyle())
-                }
+                Text("! ! !")
+                    .font(.system(size: 10, weight: .light))
             }
                 .padding(.horizontal, 25)
         }
@@ -382,83 +237,17 @@ struct TaskTypes: View {
 }
 
 struct AddNoteDemo: View {
-    @State private var addingNote: Bool = false
-    @State private var newNoteText: String = ""
-    @State private var note: [String] = []
     var body: some View {
         ZStack {
             Color.init(UIColor.systemGray6)
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                ForEach(self.note, id: \.self) {
-                    noteView(note: $0)
-                }
-                if !addingNote {
-                    Button(action: {
-                        self.addingNote = true
-                    }) {
-                        HStack {
-                            MainImage(name: "plus.square", color: .systemGray)
-                            Spacer()
-                            Text("create a note")
-                                .bodyText(color: .systemGray, alignment: .center)
-                            Spacer()
-                            MainImage(name: "plus.square", color: .systemGray)
-                        }.padding(.horizontal, 25)
-                    }
-                } else {
-                    HStack {
-                        Button(action: {
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                            self.newNoteText = ""
-                            self.addingNote = false
-                        }) {
-                            MainImage(name: "multiply.square", color: .systemGray)
-                        }
-                        Spacer()
-                        TextField("tap", text: $newNoteText)
-                            .editingField()
-                        Spacer()
-                        Button(action: {
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                            if self.note.isEmpty == true {
-                                self.note.append(self.newNoteText)
-                            } else {
-                                self.note[0] = self.newNoteText
-                            }
-                            self.newNoteText = ""
-                            self.addingNote = false
-                        }) {
-                            MainImage(name: "plus.square", color: .systemGray)
-                        }
-                    }
-                        .padding(.horizontal, 25)
-                }
-            }
-        }
-    }
-    struct noteView: View {
-        @State private var editing: Bool = false
-        @State var note: String = "lorem ipsum dolor sit amet"
-        var body: some View {
             HStack {
-                MainImage(name: "minus", color: .label)
-                    .padding(.trailing, 20)
-                if !editing {
-                    Text(note)
-                        .bodyText(color: .label, alignment: .leading)
-                        .onTapGesture(count: 2) {
-                            self.editing = true
-                        }
-                } else {
-                    TextField("editing note", text: $note) {
-                        self.editing = false
-                    }
-                        .font(.system(size: 20, weight: .light))
-                        .foregroundColor(Color.init(UIColor.systemGray))
-                        .autocapitalization(.none)
-                }
+                MainImage(name: "plus.square", color: .systemGray)
                 Spacer()
+                Text("create a note")
+                    .bodyText(color: .systemGray, alignment: .center)
+                Spacer()
+                MainImage(name: "plus.square", color: .systemGray)
             }
                 .padding(.horizontal, 25)
         }
@@ -466,8 +255,6 @@ struct AddNoteDemo: View {
 }
 
 struct NoteDemo: View {
-    @State private var editing: Bool = false
-    @State private var note: String = "lorem ipsum dolor sit amet"
     var body: some View {
         ZStack {
             Color.init(UIColor.systemGray6)
@@ -475,20 +262,8 @@ struct NoteDemo: View {
             HStack {
                 MainImage(name: "minus", color: .label)
                     .padding(.trailing, 20)
-                if !editing {
-                    Text(note)
-                        .bodyText(color: .label, alignment: .leading)
-                        .onTapGesture(count: 2) {
-                            self.editing = true
-                        }
-                } else {
-                    TextField("editing note", text: $note) {
-                        self.editing = false
-                    }
-                        .font(.system(size: 20, weight: .light))
-                        .foregroundColor(Color.init(UIColor.systemGray))
-                        .autocapitalization(.none)
-                }
+                Text("lorem ipsum dolor sit amet")
+                    .bodyText(color: .label, alignment: .leading)
                 Spacer()
             }
                 .padding(.horizontal, 25)
