@@ -23,6 +23,5 @@ extension FloatingTask {
     @NSManaged public var notes: Array<String>
     @NSManaged public var id: UUID
     @NSManaged public var completionDate: Date
-    @NSManaged public var markedForDeletion: Bool
 
 }

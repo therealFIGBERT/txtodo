@@ -107,7 +107,6 @@ struct addMainTask: View {
                             newFloatingTask.notes = [String]()
                             newFloatingTask.id = UUID()
                             newFloatingTask.completionDate = Date.init()
-                            newFloatingTask.markedForDeletion = false
                         }
                         do {
                             try self.managedObjectContext.save()

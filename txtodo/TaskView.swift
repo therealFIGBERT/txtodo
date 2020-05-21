@@ -42,9 +42,6 @@ struct floatingTaskView: View {
                         self.task.completed = self.completed
                         if self.completed {
                             self.task.completionDate = Date.init()
-                            self.task.markedForDeletion = true
-                        } else {
-                            self.task.markedForDeletion = false
                         }
                         try? self.managedObjectContext.save()
                     }

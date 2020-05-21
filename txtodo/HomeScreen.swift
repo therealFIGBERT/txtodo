@@ -53,7 +53,7 @@ struct HomeScreen: View {
                         )
                             .environment(\.managedObjectContext, self.managedObjectContext)
                             .onAppear(perform: {
-                                if task.markedForDeletion && !(Calendar.current.component(.day, from: task.completionDate) == self.currentDay) {
+                                if task.completed && !(Calendar.current.component(.day, from: task.completionDate) == self.currentDay) {
                                     self.managedObjectContext.performAndWait {
                                         self.managedObjectContext.delete(task)
                                         try? self.managedObjectContext.save()
