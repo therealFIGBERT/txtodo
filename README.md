@@ -26,7 +26,7 @@ download it on the app store and give it a try!
 ## long term goals
 - [ ] add e2e encrypted cloud storage
 - [ ] create macos companion app
-- [ ] monetize in a not-evil way
+- [x] monetize in a not-evil way
 
 # links
 1. [txtodo homepage](https://txtodo.app/)
@@ -34,6 +34,9 @@ download it on the app store and give it a try!
 3. [txtodo repository](https://github.com/therealFIGBERT/txtodo)
 4. [txtodo homepage repository](https://github.com/therealFIGBERT/txtodo.app)
 5. [txtodo on the App Store](https://apps.apple.com/us/app/txtodo/id1504609185)
+
+# license
+copyright © 2020 figbert industries. all rights reserved.
 
 [0]: https://figbert.com/
 [1]: https://jeffhuang.com/productivity_text_file/
