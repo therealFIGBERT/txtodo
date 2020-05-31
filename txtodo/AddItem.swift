@@ -74,7 +74,38 @@ struct addMainTask: View {
                         MainImage(name: "multiply.square", color: .systemGray3)
                     }
                     Spacer()
-                    TextField("tap", text: $newTaskText)
+                    TextField("tap", text: $newTaskText) {
+                        guard self.newTaskText != "" else {return}
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
+                        if self.type == "note" {
+                            let newDailyTask = DailyTask(context: self.managedObjectContext)
+                            newDailyTask.completed = false
+                            newDailyTask.name = self.newTaskText
+                            newDailyTask.priority = Int16(self.newTaskPriority)
+                            newDailyTask.notes = [String]()
+                            newDailyTask.id = UUID()
+                            newDailyTask.creationDate = Date.init()
+                        } else {
+                            let newFloatingTask = FloatingTask(context: self.managedObjectContext)
+                            newFloatingTask.completed = false
+                            newFloatingTask.name = self.newTaskText
+                            newFloatingTask.priority = Int16(self.newTaskPriority)
+                            newFloatingTask.notes = [String]()
+                            newFloatingTask.id = UUID()
+                            newFloatingTask.completionDate = Date.init()
+                        }
+                        do {
+                            try self.managedObjectContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                        generator.impactOccurred()
+                        self.newTaskText = ""
+                        self.newTaskPriority = 1
+                        self.addingTask = false
+                        self.activityBinding = true
+                    }
                         .editingField()
                     Picker(
                         selection: $newTaskPriority,
