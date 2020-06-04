@@ -11,7 +11,7 @@ import SwiftUI
 struct Header: ViewModifier {
     func body(content: Content) -> some View {
         return content
-            .font(.system(size: 25, weight: .medium, design: .rounded))
+            .font(.system(size: 25, weight: .light, design: .rounded))
             .foregroundColor(Color.init(.label))
             .multilineTextAlignment(.center)
     }
