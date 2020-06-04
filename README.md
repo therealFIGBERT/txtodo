@@ -24,7 +24,7 @@ download it on the app store and give it a try!
 	- [ ] japanese
 
 ## long term goals
-- [ ] add e2e encrypted cloud storage
+- [x] add e2e encrypted cloud storage
 - [ ] create macos companion app
 - [x] monetize in a not-evil way
 
