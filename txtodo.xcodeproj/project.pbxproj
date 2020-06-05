@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0616CD248A0446002ECB6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0616CC248A0446002ECB6A /* AppDelegate.swift */; };
+		3A0616CF248A0446002ECB6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0616CE248A0446002ECB6A /* ContentView.swift */; };
+		3A0616D2248A0446002ECB6A /* txtodo_mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A0616D0248A0446002ECB6A /* txtodo_mac.xcdatamodeld */; };
+		3A0616D4248A0447002ECB6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0616D3248A0447002ECB6A /* Assets.xcassets */; };
+		3A0616D7248A0447002ECB6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0616D6248A0447002ECB6A /* Preview Assets.xcassets */; };
+		3A0616DA248A0447002ECB6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0616D8248A0447002ECB6A /* Main.storyboard */; };
+		3A0616E1248A0465002ECB6A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0616E0248A0465002ECB6A /* CloudKit.framework */; };
+		3A0616E3248A0485002ECB6A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0616E2248A0485002ECB6A /* StoreKit.framework */; };
 		3A2FEF832422E4B00003EDBA /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2FEF822422E4B00003EDBA /* GlobalVars.swift */; };
 		3A3002AD24889E7F0019E57C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3002AC24889E7F0019E57C /* CloudKit.framework */; };
 		3A4C59F32420787E004A475C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C59F22420787E004A475C /* Onboarding.swift */; };
@@ -36,6 +44,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0616CA248A0446002ECB6A /* txtodo-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "txtodo-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A0616CC248A0446002ECB6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A0616CE248A0446002ECB6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3A0616D1248A0446002ECB6A /* txtodo_mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = txtodo_mac.xcdatamodel; sourceTree = "<group>"; };
+		3A0616D3248A0447002ECB6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A0616D6248A0447002ECB6A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3A0616D9248A0447002ECB6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A0616DB248A0447002ECB6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A0616DC248A0447002ECB6A /* txtodo_mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = txtodo_mac.entitlements; sourceTree = "<group>"; };
+		3A0616E0248A0465002ECB6A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A0616E2248A0485002ECB6A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A2FEF822422E4B00003EDBA /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		3A3002AB24889E7D0019E57C /* txtodo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = txtodo.entitlements; sourceTree = "<group>"; };
 		3A3002AC24889E7F0019E57C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -69,6 +88,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A0616C7248A0446002ECB6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0616E1248A0465002ECB6A /* CloudKit.framework in Frameworks */,
+				3A0616E3248A0485002ECB6A /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AE3ECB523F8C8C900F80147 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,6 +109,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A0616CB248A0446002ECB6A /* txtodo-mac */ = {
+			isa = PBXGroup;
+			children = (
+				3A0616CC248A0446002ECB6A /* AppDelegate.swift */,
+				3A0616CE248A0446002ECB6A /* ContentView.swift */,
+				3A0616D3248A0447002ECB6A /* Assets.xcassets */,
+				3A0616D8248A0447002ECB6A /* Main.storyboard */,
+				3A0616DB248A0447002ECB6A /* Info.plist */,
+				3A0616DC248A0447002ECB6A /* txtodo_mac.entitlements */,
+				3A0616D0248A0446002ECB6A /* txtodo_mac.xcdatamodeld */,
+				3A0616D5248A0447002ECB6A /* Preview Content */,
+			);
+			path = "txtodo-mac";
+			sourceTree = "<group>";
+		};
+		3A0616D5248A0447002ECB6A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3A0616D6248A0447002ECB6A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		3A167A28241C8C2B00E942D6 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +147,8 @@
 		3AA16A672463674400C5D848 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A0616E2248A0485002ECB6A /* StoreKit.framework */,
+				3A0616E0248A0465002ECB6A /* CloudKit.framework */,
 				3A3002AC24889E7F0019E57C /* CloudKit.framework */,
 				3AA16A682463674400C5D848 /* StoreKit.framework */,
 			);
@@ -106,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				3AE3ECBA23F8C8C900F80147 /* txtodo */,
+				3A0616CB248A0446002ECB6A /* txtodo-mac */,
 				3AA16A672463674400C5D848 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				3AE3ECB823F8C8C900F80147 /* txtodo.app */,
+				3A0616CA248A0446002ECB6A /* txtodo-mac.app */,
 			);
 			name = Products;
 			path = ..;
@@ -160,6 +215,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3A0616C9248A0446002ECB6A /* txtodo-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A0616DF248A0447002ECB6A /* Build configuration list for PBXNativeTarget "txtodo-mac" */;
+			buildPhases = (
+				3A0616C6248A0446002ECB6A /* Sources */,
+				3A0616C7248A0446002ECB6A /* Frameworks */,
+				3A0616C8248A0446002ECB6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "txtodo-mac";
+			productName = "txtodo-mac";
+			productReference = 3A0616CA248A0446002ECB6A /* txtodo-mac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		3AE3ECB723F8C8C900F80147 /* txtodo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AE3ECCF23F8C8CA00F80147 /* Build configuration list for PBXNativeTarget "txtodo" */;
@@ -183,10 +255,13 @@
 		3AE3ECB023F8C8C900F80147 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "FIGBERT Industries";
 				TargetAttributes = {
+					3A0616C9248A0446002ECB6A = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					3AE3ECB723F8C8C900F80147 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -207,11 +282,22 @@
 			projectRoot = "";
 			targets = (
 				3AE3ECB723F8C8C900F80147 /* txtodo */,
+				3A0616C9248A0446002ECB6A /* txtodo-mac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3A0616C8248A0446002ECB6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0616DA248A0447002ECB6A /* Main.storyboard in Resources */,
+				3A0616D7248A0447002ECB6A /* Preview Assets.xcassets in Resources */,
+				3A0616D4248A0447002ECB6A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AE3ECB623F8C8C900F80147 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +313,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A0616C6248A0446002ECB6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0616CF248A0446002ECB6A /* ContentView.swift in Sources */,
+				3A0616CD248A0446002ECB6A /* AppDelegate.swift in Sources */,
+				3A0616D2248A0446002ECB6A /* txtodo_mac.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AE3ECB423F8C8C900F80147 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +352,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3A0616D8248A0447002ECB6A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A0616D9248A0447002ECB6A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		3A8D7627245A84B500B08E0C /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -276,6 +380,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3A0616DD248A0447002ECB6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "txtodo-mac/txtodo_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"txtodo-mac/Preview Content\"";
+				DEVELOPMENT_TEAM = 9WHCFZ6J4N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "txtodo-mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.figbertind.txtodo-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3A0616DE248A0447002ECB6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "txtodo-mac/txtodo_mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"txtodo-mac/Preview Content\"";
+				DEVELOPMENT_TEAM = 9WHCFZ6J4N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "txtodo-mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.figbertind.txtodo-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		3AE3ECCD23F8C8CA00F80147 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -437,6 +589,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A0616DF248A0447002ECB6A /* Build configuration list for PBXNativeTarget "txtodo-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A0616DD248A0447002ECB6A /* Debug */,
+				3A0616DE248A0447002ECB6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3AE3ECB323F8C8C900F80147 /* Build configuration list for PBXProject "txtodo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -458,6 +619,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		3A0616D0248A0446002ECB6A /* txtodo_mac.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A0616D1248A0446002ECB6A /* txtodo_mac.xcdatamodel */,
+			);
+			currentVersion = 3A0616D1248A0446002ECB6A /* txtodo_mac.xcdatamodel */;
+			path = txtodo_mac.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		3AE3ECBF23F8C8C900F80147 /* txtodo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
