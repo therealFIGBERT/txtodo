@@ -147,7 +147,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3A167A28241C8C2B00E942D6 /* Data Models */ = {
+		3A167A28241C8C2B00E942D6 /* data-models */ = {
 			isa = PBXGroup;
 			children = (
 				3AE3ECBF23F8C8C900F80147 /* txtodo.xcdatamodeld */,
@@ -156,7 +156,15 @@
 				3AB0427424465E3F00CE6380 /* FloatingTask+CoreDataClass.swift */,
 				3AB0427524465E3F00CE6380 /* FloatingTask+CoreDataProperties.swift */,
 			);
-			path = "Data Models";
+			path = "data-models";
+			sourceTree = "<group>";
+		};
+		3A7B39AC248B401C0035BAAB /* localization */ = {
+			isa = PBXGroup;
+			children = (
+				3A8D7627245A84B500B08E0C /* Localizable.strings */,
+			);
+			path = localization;
 			sourceTree = "<group>";
 		};
 		3AA16A672463674400C5D848 /* Frameworks */ = {
@@ -175,8 +183,8 @@
 			children = (
 				3AE3ECBA23F8C8C900F80147 /* txtodo */,
 				3A0616CB248A0446002ECB6A /* txtodo-mac */,
-				3A8D7627245A84B500B08E0C /* Localizable.strings */,
-				3A167A28241C8C2B00E942D6 /* Data Models */,
+				3A167A28241C8C2B00E942D6 /* data-models */,
+				3A7B39AC248B401C0035BAAB /* localization */,
 				3AA16A672463674400C5D848 /* Frameworks */,
 			);
 			sourceTree = "<group>";
