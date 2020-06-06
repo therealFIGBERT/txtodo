@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var viewManager: ViewManager
     @FetchRequest(
         entity: FloatingTask.entity(),
         sortDescriptors: [

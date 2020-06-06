@@ -14,6 +14,7 @@
 		3A0616DA248A0447002ECB6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0616D8248A0447002ECB6A /* Main.storyboard */; };
 		3A0616E1248A0465002ECB6A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0616E0248A0465002ECB6A /* CloudKit.framework */; };
 		3A0616E3248A0485002ECB6A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0616E2248A0485002ECB6A /* StoreKit.framework */; };
+		3A141F56248B6767005012D8 /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A141F55248B6767005012D8 /* ViewManager.swift */; };
 		3A2FEF832422E4B00003EDBA /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2FEF822422E4B00003EDBA /* GlobalVars.swift */; };
 		3A3002AD24889E7F0019E57C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3002AC24889E7F0019E57C /* CloudKit.framework */; };
 		3A4C59F32420787E004A475C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C59F22420787E004A475C /* Onboarding.swift */; };
@@ -29,6 +30,7 @@
 		3A7B39A6248AD4320035BAAB /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B39A5248AD4320035BAAB /* Styles.swift */; };
 		3A7B39A7248B140F0035BAAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7627245A84B500B08E0C /* Localizable.strings */; };
 		3A7B39A9248B14A50035BAAB /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B39A8248B14A50035BAAB /* AddItem.swift */; };
+		3A7B39AE248B45E90035BAAB /* TaskNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B39AD248B45E90035BAAB /* TaskNoteView.swift */; };
 		3A830FC724215B7600DC4766 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A830FC624215B7600DC4766 /* HomeScreen.swift */; };
 		3A8D7625245A84B500B08E0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7627245A84B500B08E0C /* Localizable.strings */; };
 		3A93349D243ACC700016A8E7 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */; };
@@ -63,6 +65,7 @@
 		3A0616DC248A0447002ECB6A /* txtodo_mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = txtodo_mac.entitlements; sourceTree = "<group>"; };
 		3A0616E0248A0465002ECB6A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A0616E2248A0485002ECB6A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A141F55248B6767005012D8 /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 		3A2FEF822422E4B00003EDBA /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		3A3002AB24889E7D0019E57C /* txtodo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = txtodo.entitlements; sourceTree = "<group>"; };
 		3A3002AC24889E7F0019E57C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -73,6 +76,7 @@
 		3A7B39A3248AD3040035BAAB /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		3A7B39A5248AD4320035BAAB /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3A7B39A8248B14A50035BAAB /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
+		3A7B39AD248B45E90035BAAB /* TaskNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNoteView.swift; sourceTree = "<group>"; };
 		3A830FC624215B7600DC4766 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3A8D7626245A84B500B08E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3A8D7628245A84C400B08E0C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -128,8 +132,10 @@
 				3A0616CE248A0446002ECB6A /* ContentView.swift */,
 				3A7B3998248AD0ED0035BAAB /* HomeScreen.swift */,
 				3A7B39A3248AD3040035BAAB /* TaskView.swift */,
+				3A7B39AD248B45E90035BAAB /* TaskNoteView.swift */,
 				3A7B39A8248B14A50035BAAB /* AddItem.swift */,
 				3A7B39A5248AD4320035BAAB /* Styles.swift */,
+				3A141F55248B6767005012D8 /* ViewManager.swift */,
 				3A0616D3248A0447002ECB6A /* Assets.xcassets */,
 				3A0616D8248A0447002ECB6A /* Main.storyboard */,
 				3A0616DB248A0447002ECB6A /* Info.plist */,
@@ -346,7 +352,9 @@
 				3A7B399F248AD12D0035BAAB /* FloatingTask+CoreDataProperties.swift in Sources */,
 				3A7B399D248AD12D0035BAAB /* DailyTask+CoreDataProperties.swift in Sources */,
 				3A7B3999248AD0ED0035BAAB /* HomeScreen.swift in Sources */,
+				3A7B39AE248B45E90035BAAB /* TaskNoteView.swift in Sources */,
 				3A7B399C248AD12D0035BAAB /* DailyTask+CoreDataClass.swift in Sources */,
+				3A141F56248B6767005012D8 /* ViewManager.swift in Sources */,
 				3A7B399E248AD12D0035BAAB /* FloatingTask+CoreDataClass.swift in Sources */,
 				3A0616CF248A0446002ECB6A /* ContentView.swift in Sources */,
 				3A0616CD248A0446002ECB6A /* AppDelegate.swift in Sources */,

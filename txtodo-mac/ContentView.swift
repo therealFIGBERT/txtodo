@@ -9,8 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var viewManager: ViewManager
     var body: some View {
-        HomeScreen()
+        Group {
+            if viewManager.viewingDailyTaskNotes {
+                dailyTaskNotes(task: viewManager.dailyTask)
+            } else if viewManager.viewingFloatingTaskNotes {
+                floatingTaskNotes(task: viewManager.floatingTask)
+            } else {
+                HomeScreen()
+            }
+        }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
@@ -18,6 +28,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ViewManager())
     }
 }

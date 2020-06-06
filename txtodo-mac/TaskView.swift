@@ -10,6 +10,7 @@ import SwiftUI
 
 struct floatingTaskView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var viewManager: ViewManager
     @ObservedObject var task: FloatingTask
     @State var completed: Bool
     @State var name: String
@@ -17,7 +18,6 @@ struct floatingTaskView: View {
     @State var deleted: Bool = false
     @State private var editingText: Bool = false
     @State private var editingPriority: Bool = false
-    @State private var viewingNotes: Bool = false
     @State private var confirmingDelete: Bool = false
     var body: some View {
         let priorityIntermediary = Binding<Int>(
@@ -78,7 +78,8 @@ struct floatingTaskView: View {
                         self.confirmingDelete = true
                     }
                     .onTapGesture(count: 1) {
-                        self.viewingNotes = true
+                        self.viewManager.floatingTask = self.task
+                        self.viewManager.viewingFloatingTaskNotes = true
                     }
             } else {
                 TextField("edit task", text: $name) {
@@ -169,6 +170,7 @@ struct floatingTaskView: View {
 
 struct dailyTaskView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @EnvironmentObject var viewManager: ViewManager
     @ObservedObject var task: DailyTask
     @State var completed: Bool
     @State var name: String
@@ -176,7 +178,6 @@ struct dailyTaskView: View {
     @State var deleted: Bool = false
     @State private var editingText: Bool = false
     @State private var editingPriority: Bool = false
-    @State private var viewingNotes: Bool = false
     @State private var confirmingDelete: Bool = false
     var body: some View {
         let priorityIntermediary = Binding<Int>(
@@ -231,7 +232,8 @@ struct dailyTaskView: View {
                         self.confirmingDelete = true
                     }
                     .onTapGesture(count: 1) {
-                        self.viewingNotes = true
+                        self.viewManager.dailyTask = self.task
+                        self.viewManager.viewingDailyTaskNotes = true
                     }
             } else {
                 TextField("edit task", text: $name) {
