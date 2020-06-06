@@ -29,7 +29,7 @@ struct HomeScreen: View {
     ) var dailyTasks: FetchedResults<DailyTask>
     let currentDay = Calendar.current.component(.day, from: Date.init())
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        Group {
             VStack {
                 Text("title")
                     .underline()
@@ -86,8 +86,8 @@ struct HomeScreen: View {
                 addTask(lessThanThreeFloatingTasks: floatingTasks.count < 3)
                     .environment(\.managedObjectContext, self.managedObjectContext)
             }
-                .padding(.top, 45)
-                .padding(.bottom, 90)
+                .padding(.top, 25)
+                .padding(.bottom, 25)
                 .padding(.horizontal, 25)
             Spacer()
         }
