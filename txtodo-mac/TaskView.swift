@@ -137,6 +137,33 @@ struct floatingTaskView: View {
                     .labelsHidden()
             }
         }
+            .popover(isPresented: $confirmingDelete, content: {
+                VStack {
+                    Text("confirm delete").bold().padding(.bottom, 4)
+                    Text(String(format: NSLocalizedString("\"%@\" deleteWarning", comment: ""), self.name))
+                    HStack {
+                        Button(action: {
+                            self.confirmingDelete = false
+                        }, label: {
+                            Text("cancel")
+                        })
+                        Button(action: {
+                            self.managedObjectContext.performAndWait {
+                                self.managedObjectContext.delete(self.task)
+                                try? self.managedObjectContext.save()
+                            }
+                        }, label: {
+                            Text("delete")
+                        })
+                            .buttonStyle(PlainButtonStyle())
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 1.5)
+                            .background(Color(.red))
+                            .cornerRadius(3)
+                    }
+                }
+                    .padding()
+            })
     }
 }
 
@@ -263,5 +290,32 @@ struct dailyTaskView: View {
                     .labelsHidden()
             }
         }
+            .popover(isPresented: $confirmingDelete, content: {
+                VStack {
+                    Text("confirm delete").bold().padding(.bottom, 4)
+                    Text(String(format: NSLocalizedString("\"%@\" deleteWarning", comment: ""), self.name))
+                    HStack {
+                        Button(action: {
+                            self.confirmingDelete = false
+                        }, label: {
+                            Text("cancel")
+                        })
+                        Button(action: {
+                            self.managedObjectContext.performAndWait {
+                                self.managedObjectContext.delete(self.task)
+                                try? self.managedObjectContext.save()
+                            }
+                        }, label: {
+                            Text("delete")
+                        })
+                            .buttonStyle(PlainButtonStyle())
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 1.5)
+                            .background(Color(.red))
+                            .cornerRadius(3)
+                    }
+                }
+                    .padding()
+            })
     }
 }
