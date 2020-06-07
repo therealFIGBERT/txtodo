@@ -13,9 +13,9 @@ struct ContentView: View {
     var body: some View {
         Group {
             if !globalVars.showOnboarding {
-                HomeScreen()
+                HomeScreen().environmentObject(globalVars)
             } else {
-                Onboarding()
+                Onboarding().environmentObject(globalVars)
             }
         }
     }
