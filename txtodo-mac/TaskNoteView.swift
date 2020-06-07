@@ -151,35 +151,35 @@ struct floatingTaskNotes: View {
     @EnvironmentObject var viewManager: ViewManager
     @ObservedObject var task: FloatingTask
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                HStack {
-                    MainImage(name: "chevron.left.square")
-                        .onTapGesture {
-                            self.viewManager.viewingFloatingTaskNotes = false
-                        }
-                    Spacer()
-                    Text(task.name)
-                        .underline()
-                        .header()
-                        .padding(.trailing, 15)
-                    Spacer()
-                }
-                    .padding(.horizontal, 25)
-                ForEach(Array(task.notes.enumerated()), id: \.element) { index, note in
-                    floatingTaskNote(
-                        task: self.task,
-                        notes: self.task.notes,
-                        note: note,
-                        index: index
-                    )
-                }
-                addFloatingNote(
-                    task: task
+        VStack {
+            HStack {
+                Spacer()
+                Text(task.name)
+                    .underline()
+                    .header()
+                Spacer()
+            }
+            ForEach(Array(task.notes.enumerated()), id: \.element) { index, note in
+                floatingTaskNote(
+                    task: self.task,
+                    notes: self.task.notes,
+                    note: note,
+                    index: index
                 )
             }
-                .padding(.top, 25)
+            addFloatingNote(
+                task: task
+            )
+            Spacer()
+            HStack {
+                MainImage(name: "chevron.left.square")
+                Text("back home")
+            }
+                .onTapGesture {
+                    self.viewManager.viewingFloatingTaskNotes = false
+                }
         }
+            .padding(.vertical, 25)
     }
 }
 
@@ -188,34 +188,34 @@ struct dailyTaskNotes: View {
     @EnvironmentObject var viewManager: ViewManager
     @ObservedObject var task: DailyTask
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                HStack {
-                    MainImage(name: "chevron.left.square")
-                        .onTapGesture {
-                            self.viewManager.viewingDailyTaskNotes = false
-                        }
-                    Spacer()
-                    Text(task.name)
-                        .underline()
-                        .header()
-                        .padding(.trailing, 15)
-                    Spacer()
-                }
-                    .padding(.horizontal, 25)
-                ForEach(Array(task.notes.enumerated()), id: \.element) { index, note in
-                    dailyTaskNote(
-                        task: self.task,
-                        notes: self.task.notes,
-                        note: note,
-                        index: index
-                    )
-                }
-                addDailyNote(
-                    task: task
+        VStack {
+            HStack {
+                Spacer()
+                Text(task.name)
+                    .underline()
+                    .header()
+                Spacer()
+            }
+            ForEach(Array(task.notes.enumerated()), id: \.element) { index, note in
+                dailyTaskNote(
+                    task: self.task,
+                    notes: self.task.notes,
+                    note: note,
+                    index: index
                 )
             }
-                .padding(.top, 25)
+            addDailyNote(
+                task: task
+            )
+            Spacer()
+            HStack {
+                MainImage(name: "chevron.left.square")
+                Text("back home")
+            }
+                .onTapGesture {
+                    self.viewManager.viewingDailyTaskNotes = false
+                }
         }
+            .padding(.vertical, 25)
     }
 }
