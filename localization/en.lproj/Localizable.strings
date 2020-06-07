@@ -66,3 +66,7 @@
 "success" = "success";
 "error" = "error";
 "thanks" = "thanks";
+"v2 header" = "txtodo now syncs with your mac";
+"v2 body" = "tasks in txtodo are now synced across devices! for more information, visit txtodo.app or click the button below.";
+"check it out" = "check it out";
+"dismiss" = "dismiss";

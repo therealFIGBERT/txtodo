@@ -11,6 +11,7 @@ import UserNotifications
 
 class GlobalVars: ObservableObject {
     @Published var showOnboarding: Bool
+    @Published var showMacOSAlert: Bool
     @Published var notifications: Bool = UserDefaults.standard.bool(forKey: "notifications") {
         willSet {
             if !newValue {
@@ -81,6 +82,12 @@ class GlobalVars: ObservableObject {
             showOnboarding = true
         } else {
             showOnboarding = false
+        }
+        if !UserDefaults.standard.bool(forKey: "hasShownMacOSAlert") {
+            UserDefaults.standard.set(true, forKey: "hasShownMacOSAlert")
+            showMacOSAlert = true
+        } else {
+            showMacOSAlert = false
         }
     }
 }
