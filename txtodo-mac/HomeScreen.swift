@@ -85,11 +85,7 @@ struct HomeScreen: View {
             addTask(lessThanThreeFloatingTasks: floatingTasks.count < 3)
                 .environment(\.managedObjectContext, self.managedObjectContext)
             Spacer()
-            HStack {
-                MainImage(name: "power")
-                Text("quit")
-                MainImage(name: "power")
-            }
+            MainImage(name: "power")
                 .onTapGesture {
                     NSApplication.shared.terminate(self)
                 }
