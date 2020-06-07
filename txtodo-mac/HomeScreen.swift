@@ -29,68 +29,74 @@ struct HomeScreen: View {
     ) var dailyTasks: FetchedResults<DailyTask>
     let currentDay = Calendar.current.component(.day, from: Date.init())
     var body: some View {
-        Group {
-            VStack {
-                Text("title")
-                    .underline()
-                    .header()
-                if self.floatingTasks.count > 0 {
-                    HStack {
-                        Text("floating")
-                            .sectionLabel()
-                        Spacer()
-                    }
+        VStack {
+            Text("title")
+                .underline()
+                .header()
+            if self.floatingTasks.count > 0 {
+                HStack {
+                    Text("floating")
+                        .sectionLabel()
+                    Spacer()
                 }
-                ForEach(self.floatingTasks, id: \.id) { task in
-                    floatingTaskView(
-                        task: task,
-                        completed: task.completed,
-                        name: task.name,
-                        priority: Int(task.priority)
-                    )
-                        .environment(\.managedObjectContext, self.managedObjectContext)
-                        .onAppear(perform: {
-                            if task.completed && !(Calendar.current.component(.day, from: task.completionDate) == self.currentDay) {
-                                self.managedObjectContext.performAndWait {
-                                    self.managedObjectContext.delete(task)
-                                    try? self.managedObjectContext.save()
-                                }
-                            }
-                        })
-                }
-                if self.dailyTasks.count > 0 {
-                    HStack {
-                        Text("daily")
-                            .sectionLabel()
-                        Spacer()
-                    }
-                }
-                ForEach(self.dailyTasks, id: \.id) { task in
-                    dailyTaskView(
-                        task: task,
-                        completed: task.completed,
-                        name: task.name,
-                        priority: Int(task.priority),
-                        deleted: Calendar.current.component(.day, from: task.creationDate) == self.currentDay ? false : true
-                    )
-                        .environment(\.managedObjectContext, self.managedObjectContext)
-                        .onAppear(perform: {
-                            if !(Calendar.current.component(.day, from: task.creationDate) == self.currentDay) {
-                                self.managedObjectContext.performAndWait {
-                                    self.managedObjectContext.delete(task)
-                                    try? self.managedObjectContext.save()
-                                }
-                            }
-                        })
-                }
-                addTask(lessThanThreeFloatingTasks: floatingTasks.count < 3)
-                    .environment(\.managedObjectContext, self.managedObjectContext)
             }
-                .padding(.top, 25)
-                .padding(.bottom, 25)
-                .padding(.horizontal, 25)
+            ForEach(self.floatingTasks, id: \.id) { task in
+                floatingTaskView(
+                    task: task,
+                    completed: task.completed,
+                    name: task.name,
+                    priority: Int(task.priority)
+                )
+                    .environment(\.managedObjectContext, self.managedObjectContext)
+                    .onAppear(perform: {
+                        if task.completed && !(Calendar.current.component(.day, from: task.completionDate) == self.currentDay) {
+                            self.managedObjectContext.performAndWait {
+                                self.managedObjectContext.delete(task)
+                                try? self.managedObjectContext.save()
+                            }
+                        }
+                    })
+            }
+            if self.dailyTasks.count > 0 {
+                HStack {
+                    Text("daily")
+                        .sectionLabel()
+                    Spacer()
+                }
+            }
+            ForEach(self.dailyTasks, id: \.id) { task in
+                dailyTaskView(
+                    task: task,
+                    completed: task.completed,
+                    name: task.name,
+                    priority: Int(task.priority),
+                    deleted: Calendar.current.component(.day, from: task.creationDate) == self.currentDay ? false : true
+                )
+                    .environment(\.managedObjectContext, self.managedObjectContext)
+                    .onAppear(perform: {
+                        if !(Calendar.current.component(.day, from: task.creationDate) == self.currentDay) {
+                            self.managedObjectContext.performAndWait {
+                                self.managedObjectContext.delete(task)
+                                try? self.managedObjectContext.save()
+                            }
+                        }
+                    })
+            }
+            addTask(lessThanThreeFloatingTasks: floatingTasks.count < 3)
+                .environment(\.managedObjectContext, self.managedObjectContext)
             Spacer()
+            HStack {
+                MainImage(name: "power")
+                Text("quit")
+                MainImage(name: "power")
+            }
+                .onTapGesture {
+                    NSApplication.shared.terminate(self)
+                }
         }
+            .padding(.top, 25)
+            .padding(.bottom, 25)
+            .padding(.horizontal, 25)
     }
 }
 
