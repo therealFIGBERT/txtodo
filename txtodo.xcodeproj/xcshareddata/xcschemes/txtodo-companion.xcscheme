@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3A0616C9248A0446002ECB6A"
-               BuildableName = "txtodo-mac.app"
-               BlueprintName = "txtodo-mac"
+               BuildableName = "txtodo-companion.app"
+               BlueprintName = "txtodo-companion"
                ReferencedContainer = "container:txtodo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A0616C9248A0446002ECB6A"
-            BuildableName = "txtodo-mac.app"
-            BlueprintName = "txtodo-mac"
+            BuildableName = "txtodo-companion.app"
+            BlueprintName = "txtodo-companion"
             ReferencedContainer = "container:txtodo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A0616C9248A0446002ECB6A"
-            BuildableName = "txtodo-mac.app"
-            BlueprintName = "txtodo-mac"
+            BuildableName = "txtodo-companion.app"
+            BlueprintName = "txtodo-companion"
             ReferencedContainer = "container:txtodo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

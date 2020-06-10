@@ -1,6 +1,6 @@
 //
 //  Styles.swift
-//  txtodo-mac
+//  txtodo-companion
 //
 //  Created by FIGBERT on 6/5/20.
 //  Copyright © 2020 FIGBERT Industries. All rights reserved.
