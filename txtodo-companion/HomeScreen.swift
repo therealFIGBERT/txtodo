@@ -85,13 +85,8 @@ struct HomeScreen: View {
             addTask(lessThanThreeFloatingTasks: floatingTasks.count < 3)
                 .environment(\.managedObjectContext, self.managedObjectContext)
             Spacer()
-            MainImage(name: "power")
-                .onTapGesture {
-                    NSApplication.shared.terminate(self)
-                }
         }
             .padding(.top, 25)
-            .padding(.bottom, 25)
             .padding(.horizontal, 25)
     }
 }
