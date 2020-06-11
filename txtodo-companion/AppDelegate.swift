@@ -14,46 +14,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var popover: NSPopover!
     var statusBarItem: NSStatusItem!
-    var menu: NSMenu!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = ContentView().environment(\.managedObjectContext, persistentContainer.viewContext).environmentObject(ViewManager())
-        
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 350, height: 400)
         popover.behavior = .transient
         popover.contentViewController = NSHostingController(rootView: contentView)
         self.popover = popover
         
-        self.menu = NSMenu()
+        let menu = NSMenu()
+        menu.addItem(withTitle: "open txtodo", action: #selector(togglePopover(_:)), keyEquivalent: "o")
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(withTitle: "quit txtodo", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         
         self.statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
         if let button = self.statusBarItem.button {
             button.image = NSImage(named: "MenuBarIcon")
-            button.action = #selector(togglePopover(_:))
-            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
+        self.statusBarItem.menu = menu
     }
     
     @objc func togglePopover(_ sender: AnyObject?) {
-        let event = NSApp.currentEvent!
-        if event.type == NSEvent.EventType.leftMouseUp {
-            if let button = self.statusBarItem.button {
-                if self.popover.isShown {
-                    self.popover.performClose(sender)
-                } else {
-                    self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-                    self.popover.contentViewController?.view.window?.becomeMain()
-                }
+        if let button = self.statusBarItem.button {
+            if self.popover.isShown {
+                self.popover.performClose(sender)
+            } else {
+                self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+                self.popover.contentViewController?.view.window?.becomeMain()
             }
-        } else {
-            self.popover.performClose(sender)
-            self.statusBarItem.menu = menu
-            self.statusBarItem.popUpMenu(menu)
-            self.statusBarItem.menu = nil
         }
     }
 
