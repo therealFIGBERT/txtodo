@@ -6,45 +6,12 @@
       "scale" : "1x"
     },
     {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "checkmark.square@1x-1.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
       "filename" : "checkmark.square@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "checkmark.square@2x-1.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
       "filename" : "checkmark.square@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "checkmark.square@3x-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
