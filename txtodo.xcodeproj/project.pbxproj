@@ -7,30 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A0616CD248A0446002ECB6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0616CC248A0446002ECB6A /* AppDelegate.swift */; };
-		3A0616CF248A0446002ECB6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0616CE248A0446002ECB6A /* ContentView.swift */; };
-		3A0616D4248A0447002ECB6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0616D3248A0447002ECB6A /* Assets.xcassets */; };
-		3A0616D7248A0447002ECB6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0616D6248A0447002ECB6A /* Preview Assets.xcassets */; };
-		3A0616DA248A0447002ECB6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0616D8248A0447002ECB6A /* Main.storyboard */; };
-		3A0616E1248A0465002ECB6A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0616E0248A0465002ECB6A /* CloudKit.framework */; };
-		3A0616E3248A0485002ECB6A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0616E2248A0485002ECB6A /* StoreKit.framework */; };
-		3A141F56248B6767005012D8 /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A141F55248B6767005012D8 /* ViewManager.swift */; };
 		3A2FEF832422E4B00003EDBA /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2FEF822422E4B00003EDBA /* GlobalVars.swift */; };
 		3A3002AD24889E7F0019E57C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3002AC24889E7F0019E57C /* CloudKit.framework */; };
 		3A4C59F32420787E004A475C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C59F22420787E004A475C /* Onboarding.swift */; };
 		3A658F9724288E25005C5513 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A658F9624288E25005C5513 /* Styles.swift */; };
 		3A6A4DAD2424391600013065 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A4DAC2424391600013065 /* Menus.swift */; };
-		3A7B3999248AD0ED0035BAAB /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B3998248AD0ED0035BAAB /* HomeScreen.swift */; };
-		3A7B399C248AD12D0035BAAB /* DailyTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0427224465E3F00CE6380 /* DailyTask+CoreDataClass.swift */; };
-		3A7B399D248AD12D0035BAAB /* DailyTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0427324465E3F00CE6380 /* DailyTask+CoreDataProperties.swift */; };
-		3A7B399E248AD12D0035BAAB /* FloatingTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0427424465E3F00CE6380 /* FloatingTask+CoreDataClass.swift */; };
-		3A7B399F248AD12D0035BAAB /* FloatingTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0427524465E3F00CE6380 /* FloatingTask+CoreDataProperties.swift */; };
-		3A7B39A0248AD1300035BAAB /* txtodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3ECBF23F8C8C900F80147 /* txtodo.xcdatamodeld */; };
-		3A7B39A4248AD3040035BAAB /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B39A3248AD3040035BAAB /* TaskView.swift */; };
-		3A7B39A6248AD4320035BAAB /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B39A5248AD4320035BAAB /* Styles.swift */; };
-		3A7B39A7248B140F0035BAAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7627245A84B500B08E0C /* Localizable.strings */; };
-		3A7B39A9248B14A50035BAAB /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B39A8248B14A50035BAAB /* AddItem.swift */; };
-		3A7B39AE248B45E90035BAAB /* TaskNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B39AD248B45E90035BAAB /* TaskNoteView.swift */; };
 		3A830FC724215B7600DC4766 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A830FC624215B7600DC4766 /* HomeScreen.swift */; };
 		3A8D7625245A84B500B08E0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7627245A84B500B08E0C /* Localizable.strings */; };
 		3A93349D243ACC700016A8E7 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */; };
@@ -55,28 +36,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A0616CA248A0446002ECB6A /* txtodo-companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "txtodo-companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A0616CC248A0446002ECB6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A0616CE248A0446002ECB6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3A0616D3248A0447002ECB6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A0616D6248A0447002ECB6A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3A0616D9248A0447002ECB6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A0616DB248A0447002ECB6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A0616DC248A0447002ECB6A /* txtodo_companion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = txtodo_companion.entitlements; sourceTree = "<group>"; };
 		3A0616E0248A0465002ECB6A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A0616E2248A0485002ECB6A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		3A141F55248B6767005012D8 /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 		3A2FEF822422E4B00003EDBA /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		3A3002AB24889E7D0019E57C /* txtodo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = txtodo.entitlements; sourceTree = "<group>"; };
 		3A3002AC24889E7F0019E57C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3A4C59F22420787E004A475C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		3A658F9624288E25005C5513 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3A6A4DAC2424391600013065 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
-		3A7B3998248AD0ED0035BAAB /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		3A7B39A3248AD3040035BAAB /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
-		3A7B39A5248AD4320035BAAB /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
-		3A7B39A8248B14A50035BAAB /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
-		3A7B39AD248B45E90035BAAB /* TaskNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNoteView.swift; sourceTree = "<group>"; };
 		3A830FC624215B7600DC4766 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3A8D7626245A84B500B08E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3A8D7628245A84C400B08E0C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -104,15 +71,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3A0616C7248A0446002ECB6A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A0616E1248A0465002ECB6A /* CloudKit.framework in Frameworks */,
-				3A0616E3248A0485002ECB6A /* StoreKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3AE3ECB523F8C8C900F80147 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -125,34 +83,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A0616CB248A0446002ECB6A /* txtodo-companion */ = {
-			isa = PBXGroup;
-			children = (
-				3A0616CC248A0446002ECB6A /* AppDelegate.swift */,
-				3A0616CE248A0446002ECB6A /* ContentView.swift */,
-				3A7B3998248AD0ED0035BAAB /* HomeScreen.swift */,
-				3A7B39A3248AD3040035BAAB /* TaskView.swift */,
-				3A7B39AD248B45E90035BAAB /* TaskNoteView.swift */,
-				3A7B39A8248B14A50035BAAB /* AddItem.swift */,
-				3A7B39A5248AD4320035BAAB /* Styles.swift */,
-				3A141F55248B6767005012D8 /* ViewManager.swift */,
-				3A0616D3248A0447002ECB6A /* Assets.xcassets */,
-				3A0616D8248A0447002ECB6A /* Main.storyboard */,
-				3A0616DB248A0447002ECB6A /* Info.plist */,
-				3A0616DC248A0447002ECB6A /* txtodo_companion.entitlements */,
-				3A0616D5248A0447002ECB6A /* Preview Content */,
-			);
-			path = "txtodo-companion";
-			sourceTree = "<group>";
-		};
-		3A0616D5248A0447002ECB6A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3A0616D6248A0447002ECB6A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		3A167A28241C8C2B00E942D6 /* data-models */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,14 +93,6 @@
 				3AB0427524465E3F00CE6380 /* FloatingTask+CoreDataProperties.swift */,
 			);
 			path = "data-models";
-			sourceTree = "<group>";
-		};
-		3A7B39AC248B401C0035BAAB /* localization */ = {
-			isa = PBXGroup;
-			children = (
-				3A8D7627245A84B500B08E0C /* Localizable.strings */,
-			);
-			path = localization;
 			sourceTree = "<group>";
 		};
 		3AA16A672463674400C5D848 /* Frameworks */ = {
@@ -188,9 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				3AE3ECBA23F8C8C900F80147 /* txtodo */,
-				3A0616CB248A0446002ECB6A /* txtodo-companion */,
-				3A167A28241C8C2B00E942D6 /* data-models */,
-				3A7B39AC248B401C0035BAAB /* localization */,
 				3AA16A672463674400C5D848 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -199,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				3AE3ECB823F8C8C900F80147 /* txtodo.app */,
-				3A0616CA248A0446002ECB6A /* txtodo-companion.app */,
 			);
 			name = Products;
 			path = ..;
@@ -221,7 +139,8 @@
 				3A2FEF822422E4B00003EDBA /* GlobalVars.swift */,
 				3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */,
 				3A96BE6923F90F3A00E17400 /* DarkMode.swift */,
-				3AE3ECB923F8C8C900F80147 /* Products */,
+				3A167A28241C8C2B00E942D6 /* data-models */,
+				3A8D7627245A84B500B08E0C /* Localizable.strings */,
 				3AE3ECC423F8C8CA00F80147 /* Assets.xcassets */,
 				3AE3ECC923F8C8CA00F80147 /* LaunchScreen.storyboard */,
 				3AE3ECCC23F8C8CA00F80147 /* Info.plist */,
@@ -229,6 +148,7 @@
 				3AA16A6C2463E85700C5D848 /* IAPManager.swift */,
 				3A3002AB24889E7D0019E57C /* txtodo.entitlements */,
 				3AE3ECC623F8C8CA00F80147 /* Preview Content */,
+				3AE3ECB923F8C8C900F80147 /* Products */,
 			);
 			path = txtodo;
 			sourceTree = "<group>";
@@ -244,23 +164,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A0616C9248A0446002ECB6A /* txtodo-companion */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3A0616DF248A0447002ECB6A /* Build configuration list for PBXNativeTarget "txtodo-companion" */;
-			buildPhases = (
-				3A0616C6248A0446002ECB6A /* Sources */,
-				3A0616C7248A0446002ECB6A /* Frameworks */,
-				3A0616C8248A0446002ECB6A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "txtodo-companion";
-			productName = "txtodo-mac";
-			productReference = 3A0616CA248A0446002ECB6A /* txtodo-companion.app */;
-			productType = "com.apple.product-type.application";
-		};
 		3AE3ECB723F8C8C900F80147 /* txtodo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AE3ECCF23F8C8CA00F80147 /* Build configuration list for PBXNativeTarget "txtodo" */;
@@ -285,12 +188,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "FIGBERT Industries";
 				TargetAttributes = {
-					3A0616C9248A0446002ECB6A = {
-						CreatedOnToolsVersion = 11.5;
-					};
 					3AE3ECB723F8C8C900F80147 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -311,23 +211,11 @@
 			projectRoot = "";
 			targets = (
 				3AE3ECB723F8C8C900F80147 /* txtodo */,
-				3A0616C9248A0446002ECB6A /* txtodo-companion */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3A0616C8248A0446002ECB6A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A0616DA248A0447002ECB6A /* Main.storyboard in Resources */,
-				3A7B39A7248B140F0035BAAB /* Localizable.strings in Resources */,
-				3A0616D7248A0447002ECB6A /* Preview Assets.xcassets in Resources */,
-				3A0616D4248A0447002ECB6A /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3AE3ECB623F8C8C900F80147 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,26 +231,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3A0616C6248A0446002ECB6A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A7B39A9248B14A50035BAAB /* AddItem.swift in Sources */,
-				3A7B39A6248AD4320035BAAB /* Styles.swift in Sources */,
-				3A7B399F248AD12D0035BAAB /* FloatingTask+CoreDataProperties.swift in Sources */,
-				3A7B399D248AD12D0035BAAB /* DailyTask+CoreDataProperties.swift in Sources */,
-				3A7B3999248AD0ED0035BAAB /* HomeScreen.swift in Sources */,
-				3A7B39AE248B45E90035BAAB /* TaskNoteView.swift in Sources */,
-				3A7B399C248AD12D0035BAAB /* DailyTask+CoreDataClass.swift in Sources */,
-				3A141F56248B6767005012D8 /* ViewManager.swift in Sources */,
-				3A7B399E248AD12D0035BAAB /* FloatingTask+CoreDataClass.swift in Sources */,
-				3A0616CF248A0446002ECB6A /* ContentView.swift in Sources */,
-				3A0616CD248A0446002ECB6A /* AppDelegate.swift in Sources */,
-				3A7B39A4248AD3040035BAAB /* TaskView.swift in Sources */,
-				3A7B39A0248AD1300035BAAB /* txtodo.xcdatamodeld in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3AE3ECB423F8C8C900F80147 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,14 +260,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3A0616D8248A0447002ECB6A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A0616D9248A0447002ECB6A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3A8D7627245A84B500B08E0C /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -420,56 +280,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3A0616DD248A0447002ECB6A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "txtodo-companion/txtodo_companion.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"txtodo-companion/Preview Content\"";
-				DEVELOPMENT_TEAM = 9WHCFZ6J4N;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "txtodo-companion/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.figbertind.txtodo-mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		3A0616DE248A0447002ECB6A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "txtodo-companion/txtodo_companion.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"txtodo-companion/Preview Content\"";
-				DEVELOPMENT_TEAM = 9WHCFZ6J4N;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "txtodo-companion/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.figbertind.txtodo-mac";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		3AE3ECCD23F8C8CA00F80147 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -497,6 +307,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -558,6 +369,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -596,14 +408,16 @@
 				DEVELOPMENT_TEAM = 9WHCFZ6J4N;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = txtodo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.figbertind.txtodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -617,29 +431,22 @@
 				DEVELOPMENT_TEAM = 9WHCFZ6J4N;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = txtodo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.figbertind.txtodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3A0616DF248A0447002ECB6A /* Build configuration list for PBXNativeTarget "txtodo-companion" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3A0616DD248A0447002ECB6A /* Debug */,
-				3A0616DE248A0447002ECB6A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		3AE3ECB323F8C8C900F80147 /* Build configuration list for PBXProject "txtodo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
