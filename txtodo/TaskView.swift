@@ -34,24 +34,36 @@ struct floatingTaskView: View {
         )
         return HStack {
             if !deleted {
-                Button(action: {
-                    let generator = UIImpactFeedbackGenerator(style: .medium)
-                    generator.prepare()
-                    self.completed.toggle()
-                    self.managedObjectContext.performAndWait {
-                        self.task.completed = self.completed
-                        if self.completed {
-                            self.task.completionDate = Date.init()
+                if task.completed {
+                    MainImage(name: "checkmark.square", color: .systemGray)
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.completed.toggle()
+                            self.managedObjectContext.performAndWait {
+                                self.task.completed = self.completed
+                                if self.completed {
+                                    self.task.completionDate = Date.init()
+                                }
+                                try? self.managedObjectContext.save()
+                            }
+                            generator.impactOccurred()
                         }
-                        try? self.managedObjectContext.save()
-                    }
-                    generator.impactOccurred()
-                }) {
-                    if task.completed {
-                        MainImage(name: "checkmark.square", color: .systemGray)
-                    } else {
-                        MainImage(name: "square", color: .label)
-                    }
+                } else {
+                    MainImage(name: "square", color: .label)
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.completed.toggle()
+                            self.managedObjectContext.performAndWait {
+                                self.task.completed = self.completed
+                                if self.completed {
+                                    self.task.completionDate = Date.init()
+                                }
+                                try? self.managedObjectContext.save()
+                            }
+                            generator.impactOccurred()
+                        }
                 }
             } else {
                 MainImage(name: "square", color: .label)
@@ -175,21 +187,30 @@ struct dailyTaskView: View {
         )
         return HStack {
             if !deleted {
-                Button(action: {
-                    let generator = UIImpactFeedbackGenerator(style: .medium)
-                    generator.prepare()
-                    self.completed.toggle()
-                    self.managedObjectContext.performAndWait {
-                        self.task.completed = self.completed
-                        try? self.managedObjectContext.save()
-                    }
-                    generator.impactOccurred()
-                }) {
-                    if task.completed {
-                        MainImage(name: "checkmark.square", color: .systemGray)
-                    } else {
-                        MainImage(name: "square", color: .label)
-                    }
+                if task.completed {
+                    MainImage(name: "checkmark.square", color: .systemGray)
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.completed.toggle()
+                            self.managedObjectContext.performAndWait {
+                                self.task.completed = self.completed
+                                try? self.managedObjectContext.save()
+                            }
+                            generator.impactOccurred()
+                        }
+                } else {
+                    MainImage(name: "square", color: .label)
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.completed.toggle()
+                            self.managedObjectContext.performAndWait {
+                                self.task.completed = self.completed
+                                try? self.managedObjectContext.save()
+                            }
+                            generator.impactOccurred()
+                        }
                 }
             } else {
                 MainImage(name: "square", color: .label)

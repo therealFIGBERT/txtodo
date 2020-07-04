@@ -43,36 +43,34 @@ struct addMainTask: View {
     var body: some View {
         Group {
             if !addingTask {
-                Button(action: {
-                    let generator = UIImpactFeedbackGenerator(style: .medium)
-                    generator.prepare()
-                    self.addingTask = true
-                    self.activityBinding = false
-                    generator.impactOccurred()
-                }) {
-                    HStack {
-                        MainImage(name: "plus.square", color: .systemGray3)
-                        Spacer()
-                        Text(type == "note" ? "daily" : "floating")
-                            .bodyText(color: .systemGray3, alignment: .center)
-                        Spacer()
-                        MainImage(name: "plus.square", color: .systemGray3)
-                    }
-                }
-            } else {
                 HStack {
-                    Button(action: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    MainImage(name: "plus.square", color: .systemGray3)
+                    Spacer()
+                    Text(type == "note" ? "daily" : "floating")
+                        .bodyText(color: .systemGray3, alignment: .center)
+                    Spacer()
+                    MainImage(name: "plus.square", color: .systemGray3)
+                }
+                    .onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
-                        self.newTaskText = ""
-                        self.newTaskPriority = 1
-                        self.addingTask = false
-                        self.activityBinding = true
+                        self.addingTask = true
+                        self.activityBinding = false
                         generator.impactOccurred()
-                    }) {
-                        MainImage(name: "multiply.square", color: .systemGray3)
                     }
+            } else {
+                HStack {
+                    MainImage(name: "multiply.square", color: .systemGray3)
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.newTaskText = ""
+                            self.newTaskPriority = 1
+                            self.addingTask = false
+                            self.activityBinding = true
+                            generator.impactOccurred()
+                        }
                     Spacer()
                     TextField("tap", text: $newTaskText) {
                         guard self.newTaskText != "" else {return}
@@ -117,41 +115,40 @@ struct addMainTask: View {
                     })
                         .pickerStyle(SegmentedPickerStyle())
                     Spacer()
-                    Button(action: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        guard self.newTaskText != "" else {return}
-                        let generator = UIImpactFeedbackGenerator(style: .medium)
-                        generator.prepare()
-                        if self.type == "note" {
-                            let newDailyTask = DailyTask(context: self.managedObjectContext)
-                            newDailyTask.completed = false
-                            newDailyTask.name = self.newTaskText
-                            newDailyTask.priority = Int16(self.newTaskPriority)
-                            newDailyTask.notes = [String]()
-                            newDailyTask.id = UUID()
-                            newDailyTask.creationDate = Date.init()
-                        } else {
-                            let newFloatingTask = FloatingTask(context: self.managedObjectContext)
-                            newFloatingTask.completed = false
-                            newFloatingTask.name = self.newTaskText
-                            newFloatingTask.priority = Int16(self.newTaskPriority)
-                            newFloatingTask.notes = [String]()
-                            newFloatingTask.id = UUID()
-                            newFloatingTask.completionDate = Date.init()
+                    MainImage(name: "plus.square", color: .systemGray3)
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            guard self.newTaskText != "" else {return}
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            if self.type == "note" {
+                                let newDailyTask = DailyTask(context: self.managedObjectContext)
+                                newDailyTask.completed = false
+                                newDailyTask.name = self.newTaskText
+                                newDailyTask.priority = Int16(self.newTaskPriority)
+                                newDailyTask.notes = [String]()
+                                newDailyTask.id = UUID()
+                                newDailyTask.creationDate = Date.init()
+                            } else {
+                                let newFloatingTask = FloatingTask(context: self.managedObjectContext)
+                                newFloatingTask.completed = false
+                                newFloatingTask.name = self.newTaskText
+                                newFloatingTask.priority = Int16(self.newTaskPriority)
+                                newFloatingTask.notes = [String]()
+                                newFloatingTask.id = UUID()
+                                newFloatingTask.completionDate = Date.init()
+                            }
+                            do {
+                                try self.managedObjectContext.save()
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                            generator.impactOccurred()
+                            self.newTaskText = ""
+                            self.newTaskPriority = 1
+                            self.addingTask = false
+                            self.activityBinding = true
                         }
-                        do {
-                            try self.managedObjectContext.save()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                        generator.impactOccurred()
-                        self.newTaskText = ""
-                        self.newTaskPriority = 1
-                        self.addingTask = false
-                        self.activityBinding = true
-                    }) {
-                        MainImage(name: "plus.square", color: .systemGray3)
-                    }
                 }
             }
         }
@@ -166,53 +163,50 @@ struct addFloatingNote: View {
     var body: some View {
         Group {
             if !addingNote {
-                Button(action: {
-                    let generator = UIImpactFeedbackGenerator(style: .medium)
-                    generator.prepare()
-                    self.addingNote = true
-                    generator.impactOccurred()
-                }) {
-                    HStack {
-                        MainImage(name: "plus.square", color: .systemGray3)
-                        Spacer()
-                        Text("create a note")
-                            .bodyText(color: .systemGray3, alignment: .center)
-                        Spacer()
-                        MainImage(name: "plus.square", color: .systemGray3)
-                    }
-                        .padding(.horizontal, 25)
-                }
-            } else {
                 HStack {
-                    Button(action: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    MainImage(name: "plus.square", color: .systemGray3)
+                    Spacer()
+                    Text("create a note")
+                        .bodyText(color: .systemGray3, alignment: .center)
+                    Spacer()
+                    MainImage(name: "plus.square", color: .systemGray3)
+                }
+                    .onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
-                        self.newNoteText = ""
-                        self.addingNote = false
+                        self.addingNote = true
                         generator.impactOccurred()
-                    }) {
-                        MainImage(name: "multiply.square", color: .systemGray3)
                     }
+                    .padding(.horizontal, 25)
+            } else {
+                HStack {
+                    MainImage(name: "multiply.square", color: .systemGray3)
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.newNoteText = ""
+                            self.addingNote = false
+                            generator.impactOccurred()
+                        }
                     Spacer()
                     TextField("tap", text: $newNoteText)
                         .editingField()
                     Spacer()
-                    Button(action: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        guard self.newNoteText != "" else {return}
-                        let generator = UIImpactFeedbackGenerator(style: .medium)
-                        generator.prepare()
-                        self.managedObjectContext.performAndWait {
-                            self.task.notes.append(self.newNoteText)
-                            try? self.managedObjectContext.save()
+                    MainImage(name: "plus.square", color: .systemGray3)
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            guard self.newNoteText != "" else {return}
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.managedObjectContext.performAndWait {
+                                self.task.notes.append(self.newNoteText)
+                                try? self.managedObjectContext.save()
+                            }
+                            generator.impactOccurred()
+                            self.newNoteText = ""
+                            self.addingNote = false
                         }
-                        generator.impactOccurred()
-                        self.newNoteText = ""
-                        self.addingNote = false
-                    }) {
-                        MainImage(name: "plus.square", color: .systemGray3)
-                    }
                 }.padding(.horizontal, 25)
             }
         }
@@ -227,53 +221,50 @@ struct addDailyNote: View {
     var body: some View {
         Group {
             if !addingNote {
-                Button(action: {
-                    let generator = UIImpactFeedbackGenerator(style: .medium)
-                    generator.prepare()
-                    self.addingNote = true
-                    generator.impactOccurred()
-                }) {
-                    HStack {
-                        MainImage(name: "plus.square", color: .systemGray3)
-                        Spacer()
-                        Text("create a note")
-                            .bodyText(color: .systemGray3, alignment: .center)
-                        Spacer()
-                        MainImage(name: "plus.square", color: .systemGray3)
-                    }
-                        .padding(.horizontal, 25)
-                }
-            } else {
                 HStack {
-                    Button(action: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    MainImage(name: "plus.square", color: .systemGray3)
+                    Spacer()
+                    Text("create a note")
+                        .bodyText(color: .systemGray3, alignment: .center)
+                    Spacer()
+                    MainImage(name: "plus.square", color: .systemGray3)
+                }
+                    .onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
-                        self.newNoteText = ""
-                        self.addingNote = false
+                        self.addingNote = true
                         generator.impactOccurred()
-                    }) {
-                        MainImage(name: "multiply.square", color: .systemGray3)
                     }
+                    .padding(.horizontal, 25)
+            } else {
+                HStack {
+                    MainImage(name: "multiply.square", color: .systemGray3)
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.newNoteText = ""
+                            self.addingNote = false
+                            generator.impactOccurred()
+                        }
                     Spacer()
                     TextField("tap", text: $newNoteText)
                         .editingField()
                     Spacer()
-                    Button(action: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        guard self.newNoteText != "" else {return}
-                        let generator = UIImpactFeedbackGenerator(style: .medium)
-                        generator.prepare()
-                        self.managedObjectContext.performAndWait {
-                            self.task.notes.append(self.newNoteText)
-                            try? self.managedObjectContext.save()
+                    MainImage(name: "plus.square", color: .systemGray3)
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            guard self.newNoteText != "" else {return}
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.managedObjectContext.performAndWait {
+                                self.task.notes.append(self.newNoteText)
+                                try? self.managedObjectContext.save()
+                            }
+                            generator.impactOccurred()
+                            self.newNoteText = ""
+                            self.addingNote = false
                         }
-                        generator.impactOccurred()
-                        self.newNoteText = ""
-                        self.addingNote = false
-                    }) {
-                        MainImage(name: "plus.square", color: .systemGray3)
-                    }
                 }.padding(.horizontal, 25)
             }
         }

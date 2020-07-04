@@ -45,39 +45,47 @@ struct Onboarding: View {
                 HStack {
                     PageControl(numberOfPages: subviews.count, currentPageIndex: $currentPage)
                     Spacer()
-                    Button(action: {
-                        let generator = UIImpactFeedbackGenerator(style: .medium)
-                        generator.prepare()
-                        if self.currentPage + 1 == self.subviews.count {
-                            self.currentPage = 0
-                        } else {
-                            self.currentPage += 1
-                        }
-                        generator.impactOccurred()
-                    }) {
-                        if currentPage != subviews.count - 1 {
-                            Image(systemName: "arrow.right.circle")
-                                .flipsForRightToLeftLayoutDirection(true)
-                                .font(.system(size: 30, weight: .light))
-                                .foregroundColor(Color.init(UIColor.label))
-                        } else {
-                            Image(systemName: "arrow.counterclockwise.circle")
-                                .flipsForRightToLeftLayoutDirection(true)
-                                .font(.system(size: 30, weight: .light))
-                                .foregroundColor(Color.init(UIColor.label))
-                        }
+                    if currentPage != subviews.count - 1 {
+                        Image(systemName: "arrow.right.circle")
+                            .onTapGesture {
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.prepare()
+                                if self.currentPage + 1 == self.subviews.count {
+                                    self.currentPage = 0
+                                } else {
+                                    self.currentPage += 1
+                                }
+                                generator.impactOccurred()
+                            }
+                            .flipsForRightToLeftLayoutDirection(true)
+                            .font(.system(size: 30, weight: .light))
+                            .foregroundColor(Color.init(UIColor.label))
+                    } else {
+                        Image(systemName: "arrow.counterclockwise.circle")
+                            .onTapGesture {
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.prepare()
+                                if self.currentPage + 1 == self.subviews.count {
+                                    self.currentPage = 0
+                                } else {
+                                    self.currentPage += 1
+                                }
+                                generator.impactOccurred()
+                            }
+                            .flipsForRightToLeftLayoutDirection(true)
+                            .font(.system(size: 30, weight: .light))
+                            .foregroundColor(Color.init(UIColor.label))
                     }
                     if currentPage == subviews.count - 1 {
-                        Button(action: {
-                            let generator = UIImpactFeedbackGenerator(style: .medium)
-                            generator.prepare()
-                            self.globalVars.showOnboarding = false
-                            generator.impactOccurred()
-                        }) {
-                            Image(systemName: "xmark.circle")
-                                .font(.system(size: 30, weight: .light))
-                                .foregroundColor(Color.init(UIColor.label))
-                        }
+                        Image(systemName: "xmark.circle")
+                            .onTapGesture {
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.prepare()
+                                self.globalVars.showOnboarding = false
+                                generator.impactOccurred()
+                            }
+                            .font(.system(size: 30, weight: .light))
+                            .foregroundColor(Color.init(UIColor.label))
                     }
                 }
             }
@@ -278,11 +286,6 @@ struct RequestNotifications: View {
             Color.init(UIColor.systemGray6)
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                Button(action: {
-                    self.globalVars.notificationHour = 8
-                    self.globalVars.notificationMinute = 30
-                    self.globalVars.notifications = true
-                }) {
                     if globalVars.notifications {
                         Text(String(format: NSLocalizedString("notifications set for %@", comment: ""), "\("0\(self.globalVars.notificationHour):\(self.globalVars.notificationMinute != 0 ? "\(self.globalVars.notificationMinute)" : "00")")"))
                             .font(.system(size: 20, weight: .light, design: .rounded))
@@ -295,6 +298,11 @@ struct RequestNotifications: View {
                             )
                     } else {
                         Text("set notifications to 08:30")
+                            .onTapGesture {
+                                self.globalVars.notificationHour = 8
+                                self.globalVars.notificationMinute = 30
+                                self.globalVars.notifications = true
+                            }
                             .font(.system(size: 20, weight: .light, design: .rounded))
                             .foregroundColor(self.globalVars.notifications ? Color.green : Color.blue)
                             .multilineTextAlignment(.center)
@@ -304,8 +312,6 @@ struct RequestNotifications: View {
                                     .stroke(self.globalVars.notifications ? Color.green : Color.blue, lineWidth: 1)
                             )
                     }
-                }
-                    .disabled(self.globalVars.notifications)
             }
         }
     }

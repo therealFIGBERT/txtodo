@@ -100,15 +100,15 @@ struct Settings: View {
                         Image(systemName: "clock")
                         Text("time scheduled")
                         Spacer()
-                        Button(action: {
-                            let generator = UIImpactFeedbackGenerator(style: .medium)
-                            generator.prepare()
-                            self.changingTime = true
-                            generator.impactOccurred()
-                        }) {
-                            Text("0\(globalVars.notificationHour):\(globalVars.notificationMinute != 0 ? "\(globalVars.notificationMinute)" : "00")")
-                        }
-                            .disabled(!self.globalVars.notifications)
+                        Text("0\(globalVars.notificationHour):\(globalVars.notificationMinute != 0 ? "\(globalVars.notificationMinute)" : "00")")
+                            .onTapGesture {
+                                if self.globalVars.notifications {
+                                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                                    generator.prepare()
+                                    self.changingTime = true
+                                    generator.impactOccurred()
+                                }
+                            }
                             .sheet(isPresented: $changingTime, content: {
                                 VStack {
                                     Text("time scheduled")
@@ -151,17 +151,16 @@ struct Settings: View {
                     }
                 }
                 Section {
-                    Button(action: {
-                        let generator = UIImpactFeedbackGenerator(style: .medium)
-                        generator.prepare()
-                        self.globalVars.showOnboarding = true
-                        generator.impactOccurred()
-                    }) {
-                        HStack {
-                            Image(systemName: "doc.richtext")
-                            Text("show tutorial")
-                        }
+                    HStack {
+                        Image(systemName: "doc.richtext")
+                        Text("show tutorial")
                     }
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.globalVars.showOnboarding = true
+                            generator.impactOccurred()
+                        }
                 }
                 Section(header: Text(String(NSLocalizedString("tip jar", comment: "")))) {
                     HStack {
@@ -258,19 +257,17 @@ struct About: View {
             Text(String(format: NSLocalizedString(content[2], comment: "")))
                 .bodyText()
                 .padding(.bottom, 50)
-            Button(action: {
-                UIApplication.shared.open(URL(string: "https://txtodo.app/")!)
-            }) {
-                Text("view site")
-                    .bodyText(color: .link, alignment: .center)
-            }
+            Text("view site")
+                .onTapGesture {
+                    UIApplication.shared.open(URL(string: "https://txtodo.app/")!)
+                }
+                .bodyText(color: .link, alignment: .center)
                 .padding(.bottom, 10)
-            Button(action: {
-                UIApplication.shared.open(URL(string: "https://jeffhuang.com/productivity_text_file/")!)
-            }) {
-                Text("view inspo")
-                    .bodyText(color: .link, alignment: .center)
-            }
+            Text("view inspo")
+                .onTapGesture {
+                    UIApplication.shared.open(URL(string: "https://jeffhuang.com/productivity_text_file/")!)
+                }
+                .bodyText(color: .link, alignment: .center)
                 .padding(.bottom, 10)
             Spacer()
         }
