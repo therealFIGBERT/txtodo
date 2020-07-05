@@ -25,9 +25,9 @@ class GlobalVars: ObservableObject {
             UserDefaults.standard.set(newValue, forKey: "notificationID")
         }
     }
-    @Published var notificationTime: Int = UserDefaults.standard.integer(forKey: "notificationHour") {
+    @Published var notificationTime: Int = UserDefaults.standard.integer(forKey: "notificationTime") {
         willSet {
-            UserDefaults.standard.set(newValue, forKey: "notificationHour")
+            UserDefaults.standard.set(newValue, forKey: "notificationTime")
             if notifications {
                 enableNotifications()
             }
