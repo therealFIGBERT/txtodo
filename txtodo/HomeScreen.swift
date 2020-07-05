@@ -98,16 +98,6 @@ struct HomeScreen: View {
             Menu()
                 .padding(25)
         }
-            .alert(isPresented: self.$globalVars.showMacOSAlert) {
-                Alert(
-                    title: Text("v2 header"),
-                    message: Text("v2 body"),
-                    primaryButton: .default(Text("check it out")) {
-                        UIApplication.shared.open(URL(string: "https://txtodo.app/#mac")!)
-                    },
-                    secondaryButton: .default(Text("dismiss"))
-                )
-            }
     }
 }
 

@@ -75,7 +75,6 @@ struct MenuItem: View {
 struct Settings: View {
     @EnvironmentObject var globalVars: GlobalVars
     @Environment(\.colorScheme) var colorScheme
-    @State private var changingTime: Bool = false
     @State private var IAPs: [SKProduct] = []
     @State private var IAPLoading: Bool = true
     @State private var IAPError: String = ""
@@ -100,67 +99,17 @@ struct Settings: View {
                         Image(systemName: "clock")
                         Text("time scheduled")
                         Spacer()
-                        Text("0\(globalVars.notificationHour):\(globalVars.notificationMinute != 0 ? "\(globalVars.notificationMinute)" : "00")")
-                            .onTapGesture {
-                                if self.globalVars.notifications {
-                                    let generator = UIImpactFeedbackGenerator(style: .medium)
-                                    generator.prepare()
-                                    self.changingTime = true
-                                    generator.impactOccurred()
-                                }
-                            }
-                            .sheet(isPresented: $changingTime, content: {
-                                VStack {
-                                    Text("time scheduled")
-                                        .underline()
-                                        .header()
-                                        .padding(.top, 25)
-                                    GeometryReader { geometry in
-                                        HStack {
-                                            Picker(
-                                                selection: self.$globalVars.notificationHour,
-                                                label: Text("hour"),
-                                                content: {
-                                                    Text("05").tag(5)
-                                                    Text("06").tag(6)
-                                                    Text("07").tag(7)
-                                                    Text("08").tag(8)
-                                                    Text("09").tag(9)
-                                                }
-                                            )
-                                                .frame(width: geometry.size.width / 2, height: 100)
-                                                .labelsHidden()
-                                            Picker(
-                                                selection: self.$globalVars.notificationMinute,
-                                                label: Text("minutes"),
-                                                content: {
-                                                    Text("00").tag(0)
-                                                    Text("10").tag(10)
-                                                    Text("15").tag(15)
-                                                    Text("30").tag(30)
-                                                    Text("45").tag(45)
-                                                    Text("50").tag(50)
-                                                }
-                                            )
-                                                .frame(width: geometry.size.width / 2, height: 100)
-                                                .labelsHidden()
-                                        }
-                                    }
-                                }
-                            })
+                        Picker(
+                            selection: $globalVars.notificationTime,
+                            label: Text("notification time"),
+                            content: {
+                                Text("8:30").tag(0)
+                                Text("9:30").tag(1)
+                                Text("10:30").tag(2)
+                        })
+                            .disabled(!globalVars.notifications)
+                            .pickerStyle(SegmentedPickerStyle())
                     }
-                }
-                Section {
-                    HStack {
-                        Image(systemName: "doc.richtext")
-                        Text("show tutorial")
-                    }
-                        .onTapGesture {
-                            let generator = UIImpactFeedbackGenerator(style: .medium)
-                            generator.prepare()
-                            self.globalVars.showOnboarding = true
-                            generator.impactOccurred()
-                        }
                 }
                 Section(header: Text(String(NSLocalizedString("tip jar", comment: "")))) {
                     HStack {

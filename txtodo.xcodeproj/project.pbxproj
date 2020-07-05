@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A2FEF832422E4B00003EDBA /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2FEF822422E4B00003EDBA /* GlobalVars.swift */; };
 		3A3002AD24889E7F0019E57C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3002AC24889E7F0019E57C /* CloudKit.framework */; };
-		3A4C59F32420787E004A475C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4C59F22420787E004A475C /* Onboarding.swift */; };
 		3A658F9724288E25005C5513 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A658F9624288E25005C5513 /* Styles.swift */; };
 		3A6A4DAD2424391600013065 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A4DAC2424391600013065 /* Menus.swift */; };
 		3A830FC724215B7600DC4766 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A830FC624215B7600DC4766 /* HomeScreen.swift */; };
@@ -41,7 +40,6 @@
 		3A2FEF822422E4B00003EDBA /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		3A3002AB24889E7D0019E57C /* txtodo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = txtodo.entitlements; sourceTree = "<group>"; };
 		3A3002AC24889E7F0019E57C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		3A4C59F22420787E004A475C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		3A658F9624288E25005C5513 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3A6A4DAC2424391600013065 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		3A830FC624215B7600DC4766 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				3AED886E240A110B008803AB /* TaskView.swift */,
 				3A9A4564240A37B000A77520 /* TaskNoteViews.swift */,
 				3A9A4562240A36B500A77520 /* AddItem.swift */,
-				3A4C59F22420787E004A475C /* Onboarding.swift */,
 				3A6A4DAC2424391600013065 /* Menus.swift */,
 				3A658F9624288E25005C5513 /* Styles.swift */,
 				3A2FEF822422E4B00003EDBA /* GlobalVars.swift */,
@@ -248,7 +245,6 @@
 				3AB0427824465E3F00CE6380 /* FloatingTask+CoreDataClass.swift in Sources */,
 				3A658F9724288E25005C5513 /* Styles.swift in Sources */,
 				3AE3ECC123F8C8C900F80147 /* txtodo.xcdatamodeld in Sources */,
-				3A4C59F32420787E004A475C /* Onboarding.swift in Sources */,
 				3A9A4563240A36B500A77520 /* AddItem.swift in Sources */,
 				3AB0427624465E3F00CE6380 /* DailyTask+CoreDataClass.swift in Sources */,
 				3A830FC724215B7600DC4766 /* HomeScreen.swift in Sources */,

@@ -10,8 +10,6 @@ import Foundation
 import UserNotifications
 
 class GlobalVars: ObservableObject {
-    @Published var showOnboarding: Bool
-    @Published var showMacOSAlert: Bool
     @Published var notifications: Bool = UserDefaults.standard.bool(forKey: "notifications") {
         willSet {
             if !newValue {
@@ -27,17 +25,9 @@ class GlobalVars: ObservableObject {
             UserDefaults.standard.set(newValue, forKey: "notificationID")
         }
     }
-    @Published var notificationHour: Int = UserDefaults.standard.integer(forKey: "notificationHour") {
+    @Published var notificationTime: Int = UserDefaults.standard.integer(forKey: "notificationHour") {
         willSet {
             UserDefaults.standard.set(newValue, forKey: "notificationHour")
-            if notifications {
-                enableNotifications()
-            }
-        }
-    }
-    @Published var notificationMinute: Int = UserDefaults.standard.integer(forKey: "notificationMinute") {
-        willSet {
-            UserDefaults.standard.set(newValue, forKey: "notificationMinute")
             if notifications {
                 enableNotifications()
             }
@@ -55,8 +45,14 @@ class GlobalVars: ObservableObject {
                     content.body = String(format: NSLocalizedString("take some time to plan your day", comment: ""))
                     content.sound = UNNotificationSound.default
                     var time = DateComponents()
-                    time.hour = self.notificationHour
-                    time.minute = self.notificationMinute
+                    if self.notificationTime == 0 {
+                        time.hour = 8
+                    } else if self.notificationTime == 1 {
+                        time.hour = 9
+                    } else {
+                        time.hour = 10
+                    }
+                    time.minute = 30
                     let trigger = UNCalendarNotificationTrigger(
                         dateMatching: time,
                         repeats: true
@@ -73,21 +69,6 @@ class GlobalVars: ObservableObject {
             } else if let error = error {
                 print(error.localizedDescription)
             }
-        }
-    }
-    
-    init() {
-        if !UserDefaults.standard.bool(forKey: "didLaunchBefore") {
-            UserDefaults.standard.set(true, forKey: "didLaunchBefore")
-            showOnboarding = true
-        } else {
-            showOnboarding = false
-        }
-        if !UserDefaults.standard.bool(forKey: "hasShownMacOSAlert") {
-            UserDefaults.standard.set(true, forKey: "hasShownMacOSAlert")
-            showMacOSAlert = true
-        } else {
-            showMacOSAlert = false
         }
     }
 }
