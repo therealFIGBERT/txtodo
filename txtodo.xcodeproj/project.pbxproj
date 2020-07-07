@@ -11,7 +11,6 @@
 		3A3002AD24889E7F0019E57C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3002AC24889E7F0019E57C /* CloudKit.framework */; };
 		3A658F9724288E25005C5513 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A658F9624288E25005C5513 /* Styles.swift */; };
 		3A6A4DAD2424391600013065 /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A4DAC2424391600013065 /* Menus.swift */; };
-		3A830FC724215B7600DC4766 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A830FC624215B7600DC4766 /* HomeScreen.swift */; };
 		3A8D7625245A84B500B08E0C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D7627245A84B500B08E0C /* Localizable.strings */; };
 		3A93349D243ACC700016A8E7 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */; };
 		3A96BE6A23F90F3A00E17400 /* DarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A96BE6923F90F3A00E17400 /* DarkMode.swift */; };
@@ -42,7 +41,6 @@
 		3A3002AC24889E7F0019E57C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3A658F9624288E25005C5513 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3A6A4DAC2424391600013065 /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
-		3A830FC624215B7600DC4766 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		3A8D7626245A84B500B08E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3A8D7628245A84C400B08E0C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				3AE3ECBB23F8C8C900F80147 /* AppDelegate.swift */,
 				3AE3ECBD23F8C8C900F80147 /* SceneDelegate.swift */,
 				3AE3ECC223F8C8C900F80147 /* ContentView.swift */,
-				3A830FC624215B7600DC4766 /* HomeScreen.swift */,
 				3AED886E240A110B008803AB /* TaskView.swift */,
 				3A9A4564240A37B000A77520 /* TaskNoteViews.swift */,
 				3A9A4562240A36B500A77520 /* AddItem.swift */,
@@ -247,7 +244,6 @@
 				3AE3ECC123F8C8C900F80147 /* txtodo.xcdatamodeld in Sources */,
 				3A9A4563240A36B500A77520 /* AddItem.swift in Sources */,
 				3AB0427624465E3F00CE6380 /* DailyTask+CoreDataClass.swift in Sources */,
-				3A830FC724215B7600DC4766 /* HomeScreen.swift in Sources */,
 				3AE3ECC323F8C8C900F80147 /* ContentView.swift in Sources */,
 				3AE3ECBE23F8C8C900F80147 /* SceneDelegate.swift in Sources */,
 			);
