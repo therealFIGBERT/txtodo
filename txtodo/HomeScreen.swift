@@ -43,23 +43,23 @@ struct HomeScreen: View {
                                 .sectionLabel()
                             Spacer()
                         }
-                    }
-                    ForEach(self.floatingTasks, id: \.id) { task in
-                        floatingTaskView(
-                            task: task,
-                            completed: task.completed,
-                            name: task.name,
-                            priority: Int(task.priority)
-                        )
-                            .environment(\.managedObjectContext, self.managedObjectContext)
-                            .onAppear(perform: {
-                                if task.completed && !(Calendar.current.component(.day, from: task.completionDate) == self.currentDay) {
-                                    self.managedObjectContext.performAndWait {
-                                        self.managedObjectContext.delete(task)
-                                        try? self.managedObjectContext.save()
+                        ForEach(self.floatingTasks, id: \.id) { task in
+                            floatingTaskView(
+                                task: task,
+                                completed: task.completed,
+                                name: task.name,
+                                priority: Int(task.priority)
+                            )
+                                .environment(\.managedObjectContext, self.managedObjectContext)
+                                .onAppear(perform: {
+                                    if task.completed && !(Calendar.current.component(.day, from: task.completionDate) == self.currentDay) {
+                                        self.managedObjectContext.performAndWait {
+                                            self.managedObjectContext.delete(task)
+                                            try? self.managedObjectContext.save()
+                                        }
                                     }
-                                }
-                            })
+                                })
+                        }
                     }
                     if self.dailyTasks.count > 0 {
                         HStack {
@@ -67,24 +67,24 @@ struct HomeScreen: View {
                                 .sectionLabel()
                             Spacer()
                         }
-                    }
-                    ForEach(self.dailyTasks, id: \.id) { task in
-                        dailyTaskView(
-                            task: task,
-                            completed: task.completed,
-                            name: task.name,
-                            priority: Int(task.priority),
-                            deleted: Calendar.current.component(.day, from: task.creationDate) == self.currentDay ? false : true
-                        )
-                            .environment(\.managedObjectContext, self.managedObjectContext)
-                            .onAppear(perform: {
-                                if !(Calendar.current.component(.day, from: task.creationDate) == self.currentDay) {
-                                    self.managedObjectContext.performAndWait {
-                                        self.managedObjectContext.delete(task)
-                                        try? self.managedObjectContext.save()
+                        ForEach(self.dailyTasks, id: \.id) { task in
+                            dailyTaskView(
+                                task: task,
+                                completed: task.completed,
+                                name: task.name,
+                                priority: Int(task.priority),
+                                deleted: Calendar.current.component(.day, from: task.creationDate) == self.currentDay ? false : true
+                            )
+                                .environment(\.managedObjectContext, self.managedObjectContext)
+                                .onAppear(perform: {
+                                    if !(Calendar.current.component(.day, from: task.creationDate) == self.currentDay) {
+                                        self.managedObjectContext.performAndWait {
+                                            self.managedObjectContext.delete(task)
+                                            try? self.managedObjectContext.save()
+                                        }
                                     }
-                                }
-                            })
+                                })
+                        }
                     }
                     addTask(lessThanThreeFloatingTasks: floatingTasks.count < 3)
                         .environment(\.managedObjectContext, self.managedObjectContext)
