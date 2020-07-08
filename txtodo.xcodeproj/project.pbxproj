@@ -79,7 +79,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A167A28241C8C2B00E942D6 /* data-models */ = {
+		3A167A28241C8C2B00E942D6 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
 				3AE3ECBF23F8C8C900F80147 /* txtodo.xcdatamodeld */,
@@ -88,7 +88,7 @@
 				3AB0427424465E3F00CE6380 /* FloatingTask+CoreDataClass.swift */,
 				3AB0427524465E3F00CE6380 /* FloatingTask+CoreDataProperties.swift */,
 			);
-			path = "data-models";
+			path = "Data Models";
 			sourceTree = "<group>";
 		};
 		3AA16A672463674400C5D848 /* Frameworks */ = {
@@ -100,6 +100,18 @@
 				3AA16A682463674400C5D848 /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3AAD174F24B5667200D849EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AED886E240A110B008803AB /* TaskView.swift */,
+				3A9A4564240A37B000A77520 /* TaskNoteViews.swift */,
+				3A9A4562240A36B500A77520 /* AddItem.swift */,
+				3A6A4DAC2424391600013065 /* Menus.swift */,
+				3A658F9624288E25005C5513 /* Styles.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3AE3ECAF23F8C8C900F80147 = {
@@ -125,22 +137,18 @@
 				3AE3ECBB23F8C8C900F80147 /* AppDelegate.swift */,
 				3AE3ECBD23F8C8C900F80147 /* SceneDelegate.swift */,
 				3AE3ECC223F8C8C900F80147 /* ContentView.swift */,
-				3AED886E240A110B008803AB /* TaskView.swift */,
-				3A9A4564240A37B000A77520 /* TaskNoteViews.swift */,
-				3A9A4562240A36B500A77520 /* AddItem.swift */,
-				3A6A4DAC2424391600013065 /* Menus.swift */,
-				3A658F9624288E25005C5513 /* Styles.swift */,
+				3AAD174F24B5667200D849EE /* Views */,
+				3A167A28241C8C2B00E942D6 /* Data Models */,
 				3A2FEF822422E4B00003EDBA /* GlobalVars.swift */,
+				3AA16A6C2463E85700C5D848 /* IAPManager.swift */,
 				3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */,
 				3A96BE6923F90F3A00E17400 /* DarkMode.swift */,
-				3A167A28241C8C2B00E942D6 /* data-models */,
 				3A8D7627245A84B500B08E0C /* Localizable.strings */,
-				3AE3ECC423F8C8CA00F80147 /* Assets.xcassets */,
 				3AE3ECC923F8C8CA00F80147 /* LaunchScreen.storyboard */,
 				3AE3ECCC23F8C8CA00F80147 /* Info.plist */,
 				3AA16A6A2463E6C100C5D848 /* IAP_ProductIDs.plist */,
-				3AA16A6C2463E85700C5D848 /* IAPManager.swift */,
 				3A3002AB24889E7D0019E57C /* txtodo.entitlements */,
+				3AE3ECC423F8C8CA00F80147 /* Assets.xcassets */,
 				3AE3ECC623F8C8CA00F80147 /* Preview Content */,
 				3AE3ECB923F8C8C900F80147 /* Products */,
 			);
