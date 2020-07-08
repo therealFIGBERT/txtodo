@@ -89,6 +89,16 @@
 			path = "Data Models";
 			sourceTree = "<group>";
 		};
+		3A3B97DE24B56DA80093E48A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3A2FEF822422E4B00003EDBA /* GlobalVars.swift */,
+				3AA16A6C2463E85700C5D848 /* IAPManager.swift */,
+				3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		3AA16A672463674400C5D848 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +147,7 @@
 				3AE3ECC223F8C8C900F80147 /* ContentView.swift */,
 				3AAD174F24B5667200D849EE /* Views */,
 				3A167A28241C8C2B00E942D6 /* Data Models */,
-				3A2FEF822422E4B00003EDBA /* GlobalVars.swift */,
-				3AA16A6C2463E85700C5D848 /* IAPManager.swift */,
-				3A93349C243ACC700016A8E7 /* KeyboardResponder.swift */,
+				3A3B97DE24B56DA80093E48A /* Utilities */,
 				3A8D7627245A84B500B08E0C /* Localizable.strings */,
 				3AE3ECC923F8C8CA00F80147 /* LaunchScreen.storyboard */,
 				3AE3ECCC23F8C8CA00F80147 /* Info.plist */,
