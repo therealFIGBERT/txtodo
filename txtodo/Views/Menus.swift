@@ -75,14 +75,10 @@ struct Settings: View {
             Form {
                 Section {
                     Toggle(isOn: $globalVars.notifications) {
-                        HStack {
-                            Image(systemName: "app.badge")
-                            Text(globalVars.notifications ? "notifications enabled" : "notifications disabled")
-                        }
+                        Label(globalVars.notifications ? "notifications enabled" : "notifications disabled", systemImage: "app.badge")
                     }
                     HStack {
-                        Image(systemName: "clock")
-                        Text("time scheduled")
+                        Label("time scheduled", systemImage: "clock")
                         Spacer()
                         Picker(
                             selection: $globalVars.notificationTime,
