@@ -18,7 +18,7 @@ struct Menu: View {
     var body: some View {
         VStack {
             Spacer()
-            VStack(alignment: .trailing) {
+            VStack(alignment: .trailing, spacing: 15) {
                 if showSettings {
                     MenuItem(img: "gear", txt: "settings")
                 }
