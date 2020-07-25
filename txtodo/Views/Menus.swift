@@ -115,7 +115,7 @@ struct Settings: View {
                     HStack {
                         Spacer()
                         if IAPLoading {
-                            ActivityIndicator()
+                            ProgressView()
                             Spacer()
                         } else {
                             if IAPError == "" {
@@ -172,15 +172,6 @@ struct Settings: View {
                     case .failure(let error): self.IAPAlertHeader = "error"; self.IAPAlertBody = "tip unsuccessful"; print(error); self.IAPAlertViewing = true;
                 }
             }
-        }
-    }
-    
-    struct ActivityIndicator: UIViewRepresentable {
-        func makeUIView(context: Context) -> UIActivityIndicatorView {
-            return UIActivityIndicatorView()
-        }
-        func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
-            uiView.startAnimating()
         }
     }
 }
