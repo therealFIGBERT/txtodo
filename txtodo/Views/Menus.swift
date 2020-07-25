@@ -19,56 +19,41 @@ struct Menu: View {
         VStack {
             Spacer()
             VStack(alignment: .trailing, spacing: 15) {
-                if showSettings {
-                    MenuItem(img: "gear", txt: "settings")
-                }
-                if showAbout {
-                    MenuItem(img: "book", txt: "about")
+                if active {
+                    Label("settings", systemImage: "gear")
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.showSettings = true
+                            generator.impactOccurred()
+                        }
+                        .sheet(isPresented: $showSettings, content: {
+                            Settings()
+                                .environmentObject(self.globalVars)
+                        })
+                    Label("about", systemImage: "book")
+                        .onTapGesture {
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.prepare()
+                            self.showAbout = true
+                            generator.impactOccurred()
+                        }
+                        .sheet(isPresented: $showAbout, content: {
+                            About()
+                                .environmentObject(self.globalVars)
+                        })
                 }
                 Image(systemName: active ? "control" : "line.horizontal.3")
                     .font(.system(size: 35, weight: .light))
-                    .foregroundColor(Color.init(UIColor.label))
                     .onTapGesture {
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
                         self.active.toggle()
                         generator.impactOccurred()
-                        self.showSettings.toggle()
-                        self.showAbout.toggle()
                     }
             }
                 .background(Color.init(UIColor.systemGray6))
         }
-    }
-}
-
-struct MenuItem: View {
-    @EnvironmentObject var globalVars: GlobalVars
-    @State private var viewing: Bool = false
-    let img: String
-    let txt: String
-    var body: some View {
-        HStack {
-            Image(systemName: img)
-            Text(String(format: NSLocalizedString(txt, comment: "")))
-        }
-            .foregroundColor(Color.init(UIColor.label))
-            .onTapGesture {
-                let generator = UIImpactFeedbackGenerator(style: .medium)
-                generator.prepare()
-                self.viewing = true
-                generator.impactOccurred()
-            }
-            .sheet(isPresented: $viewing, content: {
-                if self.txt == "settings" {
-                    Settings()
-                        .environmentObject(self.globalVars)
-                } else if self.txt == "about" {
-                    About()
-                } else {
-                    Text("error")
-                }
-            })
     }
 }
 
