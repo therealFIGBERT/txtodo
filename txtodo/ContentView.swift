@@ -33,7 +33,7 @@ struct ContentView: View {
             Color.init(UIColor.systemGray6)
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: false) {
-                VStack {
+                VStack(spacing: 10) {
                     Text("title")
                         .underline()
                         .header()
