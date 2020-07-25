@@ -197,18 +197,16 @@ struct About: View {
             Text(String(format: NSLocalizedString(content[2], comment: "")))
                 .bodyText()
                 .padding(.bottom, 50)
-            Text("view site")
-                .onTapGesture {
-                    UIApplication.shared.open(URL(string: "https://txtodo.app/")!)
-                }
-                .bodyText(color: .link, alignment: .center)
-                .padding(.bottom, 10)
-            Text("view inspo")
-                .onTapGesture {
-                    UIApplication.shared.open(URL(string: "https://jeffhuang.com/productivity_text_file/")!)
-                }
-                .bodyText(color: .link, alignment: .center)
-                .padding(.bottom, 10)
+            Link(destination: URL(string: "https://txtodo.app/")!) {
+                Text("view site")
+                    .bodyText(color: .link, alignment: .center)
+                    .padding(.bottom, 10)
+            }
+            Link(destination: URL(string: "https://jeffhuang.com/productivity_text_file/")!) {
+                Text("view inspo")
+                    .bodyText(color: .link, alignment: .center)
+                    .padding(.bottom, 10)
+            }
             Spacer()
         }
             .padding()
