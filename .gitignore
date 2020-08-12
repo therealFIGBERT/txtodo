@@ -1,0 +1,10 @@
+# File generated based on GitHub gitignore Swift.gitignore recommendations
+xcuserdata/
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.hmap
+timeline.xctimeline
+playground.xcworkspace
+.build/
+.DS_Store
