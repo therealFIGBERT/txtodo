@@ -47,9 +47,9 @@ struct AddNoteView: View {
                             #endif
                         }
                     Spacer()
-                    TextField("tap", text: $config.newNoteText) {
+                    TextField("tap", text: $config.newNoteText, onCommit:  {
                         addTask()
-                    }
+                    })
                         .multilineTextAlignment(.center)
                     Spacer()
                     Image(systemName: "plus.square")

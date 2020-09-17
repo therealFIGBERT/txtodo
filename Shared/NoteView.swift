@@ -29,7 +29,7 @@ struct NoteView: View {
                         self.config.editing = true
                     }
             } else {
-                TextField("edit note", text: noteIntermediary) {
+                TextField("edit note", text: noteIntermediary, onCommit:  {
                     if let index = self.task.notes.firstIndex(of: self.note) {
                         self.managedObjectContext.performAndWait {
                             self.task.notes[index] = self.config.editingCache
@@ -37,7 +37,7 @@ struct NoteView: View {
                         }
                     }
                     self.config.editing = false
-                }
+                })
             }
             Spacer()
             if config.showingDelete {

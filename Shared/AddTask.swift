@@ -75,9 +75,9 @@ struct AddTaskView: View {
                             #endif
                         }
                     Spacer()
-                    TextField("tap", text: $config.newTaskText) {
+                    TextField("tap", text: $config.newTaskText, onCommit:  {
                         addTask()
-                    }
+                    })
                         .multilineTextAlignment(.center)
                     Picker(
                         selection: $config.newTaskPriority,
