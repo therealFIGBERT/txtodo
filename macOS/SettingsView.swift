@@ -12,8 +12,8 @@ struct SettingsView: View {
         TabView {
             VStack {
                 Text("txtodo by figbert - v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)")
-                Link(destination: URL(string: "https://txtodo.app/")!) { Text("view site") }
                     .padding()
+                Link(destination: URL(string: "https://txtodo.app/")!) { Text("view site") }
                 Link(destination: URL(string: "https://jeffhuang.com/productivity_text_file/")!) { Text("view inspo") }
             }
                 .tabItem {
