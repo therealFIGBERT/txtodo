@@ -65,12 +65,12 @@ struct TaskView: View {
                             self.config.showingNotes.toggle()
                         }
                 } else {
-                    TextField("edit task", text: $task.name) {
+                    TextField("edit task", text: $task.name, onCommit:  {
                         self.config.editingText = false
                         self.managedObjectContext.performAndWait {
                             try? self.managedObjectContext.save()
                         }
-                    }
+                    })
                 }
                 Spacer()
                 if !config.editingPriority {
