@@ -10,10 +10,10 @@ import SwiftUI
 struct DonationSection: View {
     var body: some View {
         VStack {
-            Text("if you enjoy txtodo, please consider supporting its development")
+            Text("considerDonating")
                 .multilineTextAlignment(.center)
                 .padding()
-            Link(destination: URL(string: "https://liberapay.com/FIGBERT/")!) { Text("donate on liberapay") }
+            Link(destination: URL(string: "https://liberapay.com/FIGBERT/")!) { Text("donateLiberapay") }
         }
     }
 }
