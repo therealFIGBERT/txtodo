@@ -39,6 +39,8 @@
 		3ABD6A8924E0AD7900B22F4B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABD6A8824E0AD7900B22F4B /* CloudKit.framework */; };
 		3ABD6A9024E0DB1B00B22F4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD6A9324E0DB1B00B22F4B /* Localizable.strings */; };
 		3ABD6A9124E0DB1B00B22F4B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD6A9324E0DB1B00B22F4B /* Localizable.strings */; };
+		3AD708DB256392CE00809259 /* DonationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD708DA256392CE00809259 /* DonationSection.swift */; };
+		3AD708DC256392CE00809259 /* DonationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD708DA256392CE00809259 /* DonationSection.swift */; };
 		3ADE061524DFCF1E000C4289 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE061424DFCEFE000C4289 /* HomeHeaderView.swift */; };
 		3AE1AE1E24DCE6D7005D88E2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AE1D24DCE6D7005D88E2 /* MenuView.swift */; };
 		3AE1AE2024DCECCC005D88E2 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AE1F24DCECCC005D88E2 /* SettingsSheet.swift */; };
@@ -78,6 +80,7 @@
 		3ABD6A8824E0AD7900B22F4B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3ABD6A9224E0DB1B00B22F4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3ABD6A9424E0DB5800B22F4B /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3AD708DA256392CE00809259 /* DonationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSection.swift; sourceTree = "<group>"; };
 		3ADE061424DFCEFE000C4289 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		3AE1AE1D24DCE6D7005D88E2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		3AE1AE1F24DCECCC005D88E2 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3AE1AE2624DD2228005D88E2 /* NotificationSection.swift */,
+				3AD708DA256392CE00809259 /* DonationSection.swift */,
 			);
 			path = "Settings Views";
 			sourceTree = "<group>";
@@ -313,6 +317,7 @@
 				3A00ABE624CF7B3C0022FCCE /* ContentView.swift in Sources */,
 				3AE1AE2724DD2228005D88E2 /* NotificationSection.swift in Sources */,
 				3AE1AE2A24DD27BB005D88E2 /* FrameModifier.swift in Sources */,
+				3AD708DB256392CE00809259 /* DonationSection.swift in Sources */,
 				3A74457624E349B600788A32 /* DevicePaddingModifiers.swift in Sources */,
 				3A5AC67A24D0D24000DD482F /* SectionLabel.swift in Sources */,
 				3AE1AE1E24DCE6D7005D88E2 /* MenuView.swift in Sources */,
@@ -329,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A74457124E33C6700788A32 /* TaskView.swift in Sources */,
+				3AD708DC256392CE00809259 /* DonationSection.swift in Sources */,
 				3A00ABFD24CF84110022FCCE /* Task+CoreDataClass.swift in Sources */,
 				3A00ABF924CF82A50022FCCE /* txtodo.xcdatamodeld in Sources */,
 				3AA0D6C924D8BCBA0052ADC8 /* AddTask.swift in Sources */,

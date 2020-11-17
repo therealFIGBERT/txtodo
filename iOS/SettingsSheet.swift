@@ -15,6 +15,8 @@ struct SettingsSheet: View {
                 .padding()
             Form {
                 NotificationSection()
+                DonationSection()
+                    .padding(.bottom)
             }
             .listStyle(GroupedListStyle())
         }

@@ -26,6 +26,11 @@ struct SettingsView: View {
                     Text("notifications")
                     Image(systemName: "app.badge")
                 }
+            DonationSection()
+                .tabItem {
+                    Text("tip jar")
+                    Image(systemName: "creditcard")
+                }
         }
             .frame(width: 300, height: 150)
     }
