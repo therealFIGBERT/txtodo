@@ -20,6 +20,8 @@
 		3A00ABFD24CF84110022FCCE /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00ABFA24CF84110022FCCE /* Task+CoreDataClass.swift */; };
 		3A00ABFE24CF84110022FCCE /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00ABFB24CF84110022FCCE /* Task+CoreDataProperties.swift */; };
 		3A00ABFF24CF84110022FCCE /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00ABFB24CF84110022FCCE /* Task+CoreDataProperties.swift */; };
+		3A1F81CF256875FE00E28B5F /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F81CE256875FE00E28B5F /* StoreManager.swift */; };
+		3A1F81D0256875FE00E28B5F /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F81CE256875FE00E28B5F /* StoreManager.swift */; };
 		3A270E0024F2310600974CD5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A270E0324F2310600974CD5 /* InfoPlist.strings */; };
 		3A270E0124F2310600974CD5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A270E0324F2310600974CD5 /* InfoPlist.strings */; };
 		3A31869624DBDB8200619154 /* NoteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A31869524DBDB8200619154 /* NoteSheet.swift */; };
@@ -42,6 +44,8 @@
 		3AD708DB256392CE00809259 /* DonationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD708DA256392CE00809259 /* DonationSection.swift */; };
 		3AD708DC256392CE00809259 /* DonationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD708DA256392CE00809259 /* DonationSection.swift */; };
 		3ADE061524DFCF1E000C4289 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADE061424DFCEFE000C4289 /* HomeHeaderView.swift */; };
+		3AE0CE87256864FB00AAFB15 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE0CE86256864FB00AAFB15 /* StoreKit.framework */; };
+		3AE0CE892568651100AAFB15 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE0CE882568651100AAFB15 /* StoreKit.framework */; };
 		3AE1AE1E24DCE6D7005D88E2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AE1D24DCE6D7005D88E2 /* MenuView.swift */; };
 		3AE1AE2024DCECCC005D88E2 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AE1F24DCECCC005D88E2 /* SettingsSheet.swift */; };
 		3AE1AE2424DD19DC005D88E2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1AE2324DD19DC005D88E2 /* SettingsView.swift */; };
@@ -65,6 +69,7 @@
 		3A00ABF724CF82A50022FCCE /* txtodo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = txtodo.xcdatamodel; sourceTree = "<group>"; };
 		3A00ABFA24CF84110022FCCE /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3A00ABFB24CF84110022FCCE /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3A1F81CE256875FE00E28B5F /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		3A270E0224F2310600974CD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A270E0424F2310900974CD5 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A31869524DBDB8200619154 /* NoteSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSheet.swift; sourceTree = "<group>"; };
@@ -82,6 +87,8 @@
 		3ABD6A9424E0DB5800B22F4B /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3AD708DA256392CE00809259 /* DonationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationSection.swift; sourceTree = "<group>"; };
 		3ADE061424DFCEFE000C4289 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		3AE0CE86256864FB00AAFB15 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.2.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		3AE0CE882568651100AAFB15 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3AE1AE1D24DCE6D7005D88E2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		3AE1AE1F24DCECCC005D88E2 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		3AE1AE2124DCECD5005D88E2 /* AboutSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSheet.swift; sourceTree = "<group>"; };
@@ -96,6 +103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ABD6A8724E0AC9A00B22F4B /* CloudKit.framework in Frameworks */,
+				3AE0CE87256864FB00AAFB15 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +112,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ABD6A8924E0AD7900B22F4B /* CloudKit.framework in Frameworks */,
+				3AE0CE892568651100AAFB15 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +141,7 @@
 				3A57486B24DC9F9C00A4F8C0 /* AddNoteView.swift */,
 				3A5AC67924D0D24000DD482F /* SectionLabel.swift */,
 				3AE1AE2924DD27BB005D88E2 /* FrameModifier.swift */,
+				3A1F81CE256875FE00E28B5F /* StoreManager.swift */,
 				3A74457524E349B600788A32 /* DevicePaddingModifiers.swift */,
 				3A270E0324F2310600974CD5 /* InfoPlist.strings */,
 				3ABD6A9324E0DB1B00B22F4B /* Localizable.strings */,
@@ -190,6 +200,8 @@
 		3ABD6A8524E0AC9A00B22F4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AE0CE882568651100AAFB15 /* StoreKit.framework */,
+				3AE0CE86256864FB00AAFB15 /* StoreKit.framework */,
 				3ABD6A8824E0AD7900B22F4B /* CloudKit.framework */,
 				3ABD6A8624E0AC9A00B22F4B /* CloudKit.framework */,
 			);
@@ -324,6 +336,7 @@
 				3A74457324E33D8500788A32 /* NoteView.swift in Sources */,
 				3A3B864F24E0AA4600740360 /* HomeHeaderView.swift in Sources */,
 				3A00ABFE24CF84110022FCCE /* Task+CoreDataProperties.swift in Sources */,
+				3A1F81CF256875FE00E28B5F /* StoreManager.swift in Sources */,
 				3A00ABE424CF7B3C0022FCCE /* txtodoApp.swift in Sources */,
 				3A57486C24DC9F9C00A4F8C0 /* AddNoteView.swift in Sources */,
 			);
@@ -343,6 +356,7 @@
 				3A00ABFF24CF84110022FCCE /* Task+CoreDataProperties.swift in Sources */,
 				3A74457724E349B600788A32 /* DevicePaddingModifiers.swift in Sources */,
 				3AE1AE2824DD2228005D88E2 /* NotificationSection.swift in Sources */,
+				3A1F81D0256875FE00E28B5F /* StoreManager.swift in Sources */,
 				3A00ABE524CF7B3C0022FCCE /* txtodoApp.swift in Sources */,
 				3A57486D24DC9F9C00A4F8C0 /* AddNoteView.swift in Sources */,
 				3AE1AE2424DD19DC005D88E2 /* SettingsView.swift in Sources */,
