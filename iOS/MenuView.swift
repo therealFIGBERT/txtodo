@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @State private var config = MenuViewConfig()
+    @StateObject var storeManager: StoreManager
     
     var body: some View {
         HStack {
@@ -19,7 +20,7 @@ struct MenuView: View {
                             config.showSettings = true
                         }
                         .sheet(isPresented: $config.showSettings) {
-                            SettingsSheet()
+                            SettingsSheet(storeManager: storeManager)
                         }
                     Label("about", systemImage: "book")
                         .onTapGesture {
@@ -50,6 +51,6 @@ struct MenuViewConfig {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(storeManager: StoreManager())
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsSheet: View {
+    @StateObject var storeManager: StoreManager
+    
     var body: some View {
         VStack {
             Text("settings")
@@ -15,8 +17,7 @@ struct SettingsSheet: View {
                 .padding()
             Form {
                 NotificationSection()
-                DonationSection()
-                    .padding(.bottom)
+                DonationSection(storeManager: storeManager)
             }
             .listStyle(GroupedListStyle())
         }
@@ -25,6 +26,6 @@ struct SettingsSheet: View {
 
 struct SettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsSheet()
+        SettingsSheet(storeManager: StoreManager())
     }
 }

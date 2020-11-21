@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @StateObject var storeManager: StoreManager
+    
     var body: some View {
         TabView {
             VStack {
@@ -26,7 +28,7 @@ struct SettingsView: View {
                     Text("notifications")
                     Image(systemName: "app.badge")
                 }
-            DonationSection()
+            DonationSection(storeManager: storeManager)
                 .tabItem {
                     Text("tip jar")
                     Image(systemName: "creditcard")
@@ -38,6 +40,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(storeManager: StoreManager())
     }
 }

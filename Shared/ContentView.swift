@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @StateObject var storeManager: StoreManager
     @FetchRequest(
         entity: Task.entity(),
         sortDescriptors: [
@@ -88,7 +89,7 @@ struct ContentView: View {
                 .animation(.easeIn(duration: 0.15))
             }
             #if os(iOS)
-                MenuView()
+                MenuView(storeManager: storeManager)
             #endif
         }
             .modifier(FrameModifier())
@@ -97,6 +98,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(storeManager: StoreManager())
     }
 }
