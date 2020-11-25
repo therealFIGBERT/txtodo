@@ -22,7 +22,6 @@ struct txtodoApp: App {
     ]
     
     @SceneBuilder var body: some Scene {
-        #if os(iOS)
         WindowGroup {
             ContentView(storeManager: storeManager)
                 .environment(\.managedObjectContext, self.persistentContainer.viewContext)
@@ -43,29 +42,9 @@ struct txtodoApp: App {
                     saveContext()
                 }
             }
-        #elseif os(macOS)
-        WindowGroup {
-            ContentView(storeManager: storeManager)
-                .environment(\.managedObjectContext, self.persistentContainer.viewContext)
-        }
-            .onChange(of: scenePhase) { phase in
-                switch phase {
-                case .active:
-                    UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-                case .inactive:
-                    saveContext()
-                case .background:
-                    saveContext()
-                @unknown default:
-                    saveContext()
-                }
-            }
+        #if os(macOS)
         Settings {
             SettingsView(storeManager: storeManager)
-                .onAppear(perform: {
-                    SKPaymentQueue.default().add(storeManager)
-                    storeManager.getProducts(productIDs: productIDs)
-                })
         }
         #endif
     }
