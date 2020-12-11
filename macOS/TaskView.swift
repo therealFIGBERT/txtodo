@@ -95,6 +95,7 @@ struct TaskView: View {
                             Text("!!!").tag(3)
                     })
                         .pickerStyle(SegmentedPickerStyle())
+                        .labelsHidden()
                 }
                 if config.showingDelete {
                     Image(systemName: "trash.circle.fill")
