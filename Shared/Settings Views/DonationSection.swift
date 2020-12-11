@@ -17,14 +17,19 @@ struct DonationSection: View {
                 .multilineTextAlignment(.center)
                 .padding()
             HStack {
-                ForEach(storeManager.myProducts.sorted(by: { first, second in return first.price.doubleValue < second.price.doubleValue }), id: \.self) { product in
-                    Text(product.priceFormatted())
-                        .foregroundColor(Color.white)
-                        .padding()
-                        .background(Color.blue.opacity(self.colorScheme == .dark ? 0.3 : 0.75).cornerRadius(10))
-                        .onTapGesture {
-                            self.storeManager.purchaseProduct(product: product)
-                        }
+                if storeManager.myProducts.isEmpty {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                } else {
+                    ForEach(storeManager.myProducts.sorted(by: { first, second in return first.price.doubleValue < second.price.doubleValue }), id: \.self) { product in
+                        Text(product.priceFormatted())
+                            .foregroundColor(Color.white)
+                            .padding()
+                            .background(Color.blue.opacity(self.colorScheme == .dark ? 0.3 : 0.75).cornerRadius(10))
+                            .onTapGesture {
+                                self.storeManager.purchaseProduct(product: product)
+                            }
+                    }
                 }
             }
                 .padding(.bottom)
