@@ -130,7 +130,7 @@ struct TaskView: View {
             if config.showingNotes {
                 VStack(spacing: 10) {
                     ForEach(task.notes, id: \.self) { note in
-                        NoteView(task: task, note: note)
+                        NoteView(task: task, note: note, config: NoteViewConfig(editingCache: note))
                             .environment(\.managedObjectContext, self.managedObjectContext)
                     }
                     AddNoteView(task: task)

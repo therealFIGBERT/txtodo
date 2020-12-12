@@ -11,15 +11,9 @@ struct NoteView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var task: Task
     @State var note: String
-    @State private var config = NoteViewConfig()
+    @State var config: NoteViewConfig
     
     var body: some View {
-        let noteIntermediary = Binding<String>(
-            get: { self.note },
-            set: { value in
-                self.config.editingCache = value
-            }
-        )
         return HStack {
             Image(systemName: "minus")
                 .padding(.trailing)
@@ -29,7 +23,7 @@ struct NoteView: View {
                         self.config.editing = true
                     }
             } else {
-                TextField("edit note", text: noteIntermediary, onCommit:  {
+                TextField("edit note", text: $config.editingCache, onCommit:  {
                     if let index = self.task.notes.firstIndex(of: self.note) {
                         self.managedObjectContext.performAndWait {
                             self.task.notes[index] = self.config.editingCache
@@ -74,5 +68,5 @@ struct NoteViewConfig {
     var editing: Bool = false
     var showingDelete: Bool = false
     var offset: CGFloat = 0
-    var editingCache = ""
+    var editingCache: String
 }
