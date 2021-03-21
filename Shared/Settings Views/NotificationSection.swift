@@ -28,20 +28,21 @@ struct NotificationSection: View {
                     Text("txtodo notifications \(notificationsEnabled ? "enabled" : "disabled")")
                 #endif
             }
-            HStack {
-                Label("time scheduled", systemImage: "clock")
-                Spacer()
-                Picker(
-                    selection: $notificationTime,
-                    label: Text("notification time"),
-                    content: {
-                        Text("8:30").tag(0)
-                        Text("9:30").tag(1)
-                        Text("10:30").tag(2)
-                })
-                    .labelsHidden()
-                    .disabled(!notificationsEnabled)
-                    .pickerStyle(SegmentedPickerStyle())
+            if self.notificationsEnabled {
+                HStack {
+                    Label("time scheduled", systemImage: "clock")
+                    Spacer()
+                    Picker(
+                        selection: $notificationTime,
+                        label: Text("notification time"),
+                        content: {
+                            Text("8:30").tag(0)
+                            Text("9:30").tag(1)
+                            Text("10:30").tag(2)
+                    })
+                        .labelsHidden()
+                        .pickerStyle(SegmentedPickerStyle())
+                }
             }
         }
     }
