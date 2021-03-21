@@ -141,7 +141,6 @@ struct TaskView: View {
         }
         .padding(.vertical, config.showingNotes ? 12 : 0)
         .padding(.horizontal, 14)
-        .background(config.showingNotes ? Color.gray.opacity(0.2) : .clear)
         .cornerRadius(15)
         .font(.system(size: 18, weight: .light))
     }
